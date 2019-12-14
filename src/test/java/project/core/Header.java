@@ -30,7 +30,15 @@ public class Header extends BasePage {
         assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[contains(@data-l,'t,friends')]")),
                 10,
                 1000));
-
+        assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[contains(@data-l,'t,messages')]")),
+                10,
+                1000));
+        assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[contains(@data-l,'t,notifications')]")),
+                10,
+                1000));
+        assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[contains(@data-l,'t,guests')]")),
+                10,
+                1000));
     }
 
     public PostInvite doSearch(String loginBot) {
@@ -48,17 +56,34 @@ public class Header extends BasePage {
         return notifications;
     }
 
-    public void deleteFriend() {
+    public boolean deleteFriend() {
         click(By.xpath(".//*[contains(@data-l,'t,friends')]"));
         Actions actions = new Actions(driver);
         actions.moveToElement(driver.findElement(By.className("user-grid-card_avatar"))).build().perform();
         click(By.xpath(".//span[contains(text(),'Прекратить дружбу')]"));
         click(By.xpath(".//*[contains(@data-l,'t,confirm')]"));
-        click(By.id("hook_FormButton_button_close"));
+        return driver.findElement(By.id("hook_FormButton_button_close")).isDisplayed();
     }
 
-    public void cancelSubscriptions() {
+    public void sendMessage() {
+        click(By.xpath(".//*[contains(@data-l,'t,messages')]"));
+        click(By.xpath(".//*[contains(@data-l,'t,send_message')]"));
+        type("Hello! Nice to meet you!", By.xpath(".//*[contains(@data-l,'t,ta')]"));
+        click(By.className("comments_add-controls"));
+    }
 
+    public void readMessage() {
+        click(By.xpath(".//*[contains(@data-l,'t,messages')]"));
+        click(By.xpath(".//*[contains(@data-l,'t,send_message')]"));
+    }
+
+    public void watchProfile () {
+        click(By.xpath(".//*[contains(@data-l,'t,friends')]"));
+        click(By.className("user-grid-card_avatar"));
+    }
+
+    public void checkGuests () {
+        click(By.xpath(".//*[contains(@data-l,'t,guests')]"));
     }
 
     public class Notifications {
@@ -78,6 +103,10 @@ public class Header extends BasePage {
         public boolean agree() {
             click(By.xpath(".//*[contains(@data-l,'t,btn_accept')]"));
             return driver.findElement(By.xpath("//div[contains(text(), 'и вы теперь друзья')]")).isDisplayed();
+        }
+
+        public boolean watch() {
+            return true;
         }
     }
 
