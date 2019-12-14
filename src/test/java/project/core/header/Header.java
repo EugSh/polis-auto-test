@@ -1,4 +1,4 @@
-package project.core;
+package project.core.header;
 
 import java.util.List;
 
@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import project.core.BasePage;
 
 import static org.junit.Assert.assertTrue;
 
@@ -17,6 +19,10 @@ public class Header extends BasePage {
     public ToolBarDropDown clickToolBarDropDown() {
         click(By.className("toolbar_dropdown_w"));
         return new ToolBarDropDown();
+    }
+
+    public void feed(){
+        click(By.id("toolbar_logo_id"));
     }
 
     @Override
@@ -31,7 +37,7 @@ public class Header extends BasePage {
         }
 
         public String clickFirstLastName() {
-            return driver.findElement(By.className("ucard-mini_cnt_i")).getAttribute("innerText");
+            return getInnerText(By.className("ucard-mini_cnt_i"));
         }
 
         public void clickSettingAndChangeName(final String newName) {

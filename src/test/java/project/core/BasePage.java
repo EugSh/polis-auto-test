@@ -26,6 +26,10 @@ public abstract class BasePage {
         driver.findElement(locator).sendKeys(text);
     }
 
+    protected String getInnerText(By locator){
+        return driver.findElement(locator).getAttribute("innerText");
+    }
+
     protected void click(By locator) {
         driver.findElement(locator).click();
     }
@@ -69,6 +73,13 @@ public abstract class BasePage {
         } finally {
             acceptNextAlert = true;
         }
+    }
+
+    public void refresh(){
+        driver.navigate().refresh();
+    }
+
+    public void feed(){
     }
 
     public boolean explicitWait(final ExpectedCondition<?> condition, long maxCheckTimeInSeconds, long millisecondsBetweenChecks) {
