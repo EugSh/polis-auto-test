@@ -2,6 +2,7 @@ package project.core;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static org.junit.Assert.assertNotEquals;
@@ -45,6 +46,19 @@ public class Header extends BasePage {
         Notifications notifications = new Notifications();
         notifications.check();
         return notifications;
+    }
+
+    public void deleteFriend() {
+        click(By.xpath(".//*[contains(@data-l,'t,friends')]"));
+        Actions actions = new Actions(driver);
+        actions.moveToElement(driver.findElement(By.className("user-grid-card_avatar"))).build().perform();
+        click(By.xpath(".//span[contains(text(),'Прекратить дружбу')]"));
+        click(By.xpath(".//*[contains(@data-l,'t,confirm')]"));
+        click(By.id("hook_FormButton_button_close"));
+    }
+
+    public void cancelSubscriptions() {
+
     }
 
     public class Notifications {
