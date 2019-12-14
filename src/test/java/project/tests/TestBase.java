@@ -7,17 +7,17 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class TestBase {
     protected WebDriver driver;
-    private final String BASE_URL = "https://ok.ru/";
+    private final String BASE_URL = "https://ok.ru";
 
     @Before
-    public void init(){
+    public void init() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get(BASE_URL);
     }
 
     @After
-    public void stop(){
+    public void stop() {
         driver.quit();
     }
 }
