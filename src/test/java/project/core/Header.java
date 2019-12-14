@@ -46,6 +46,7 @@ public class Header extends BasePage {
         public void changeLanguage(final String language){
             List<WebElement> l = driver.findElements(By.xpath(".//div[@class='toolbar_accounts-menu']/ul/li"));
             l.get(4).click();
+            click(By.xpath(".//div[@class='sel-lang_list']/a[text()[contains(.,'" + language + "')]]"));
         }
 
         public void exit() {
