@@ -9,3 +9,5 @@
 !gradlew
 !build.gradle
 !settings.gradle
+
+!*/
