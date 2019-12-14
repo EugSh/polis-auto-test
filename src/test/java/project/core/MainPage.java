@@ -1,4 +1,4 @@
-package java.core;
+package project.core;
 
 public class MainPage {
 }
