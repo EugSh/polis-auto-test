@@ -18,7 +18,7 @@ public class Header extends BasePage {
 
     public ToolBarDropDown clickToolBarDropDown() {
         click(By.className("toolbar_dropdown_w"));
-        return new ToolBarDropDown();
+        return new ToolBarDropDown(driver);
     }
 
     public void feed(){
@@ -32,36 +32,4 @@ public class Header extends BasePage {
                 msBetweenCheck));
     }
 
-    public class ToolBarDropDown {
-        private ToolBarDropDown() {
-        }
-
-        public String clickFirstLastName() {
-            return getInnerText(By.className("ucard-mini_cnt_i"));
-        }
-
-        public void clickSettingAndChangeName(final String newName) {
-            click(By.xpath(".//*[contains(@data-l,'t,settings')]"));
-            List<WebElement> l = driver.findElements(By.xpath(".//div[@class='user-settings __profile']/a"));
-            l.get(0).click();
-            type(newName, By.id("field_name"));
-            confirm();
-            click(By.id("buttonId_button_close"));
-        }
-
-        public void changeLanguage(final String language){
-            List<WebElement> l = driver.findElements(By.xpath(".//div[@class='toolbar_accounts-menu']/ul/li[5]/a"));
-            l.get(4).click();
-            click(By.xpath(".//div[@class='sel-lang_list']/a[text()[contains(.,'" + language + "')]]"));
-        }
-
-        public void exit() {
-            click(By.xpath(".//*[contains(@data-l,'t,logoutCurrentUser')]"));
-            confirm();
-        }
-
-        private void confirm() {
-            click(By.xpath(".//*[contains(@data-l,'t,confirm')]"));
-        }
-    }
 }
