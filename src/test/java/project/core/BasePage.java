@@ -4,15 +4,20 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.google.common.base.Preconditions;
 
-public abstract class BasePage1 {
+import static org.junit.Assert.assertTrue;
+
+public abstract class BasePage {
     protected WebDriver driver;
     private boolean acceptNextAlert = true;
+    protected final int maxCheckTime = 10;
+    protected final int msBetweenCheck = 1000;
 
-    public BasePage1(WebDriver driver) {
+    public BasePage(WebDriver driver) {
         this.driver = driver;
         check();
     }
@@ -22,6 +27,10 @@ public abstract class BasePage1 {
     protected void type(String text, By locator) {
         driver.findElement(locator).clear();
         driver.findElement(locator).sendKeys(text);
+    }
+
+    protected String getInnerText(By locator){
+        return driver.findElement(locator).getAttribute("innerText");
     }
 
     protected void click(By locator) {
@@ -67,6 +76,17 @@ public abstract class BasePage1 {
         } finally {
             acceptNextAlert = true;
         }
+    }
+
+    public void refresh(){
+        driver.navigate().refresh();
+    }
+
+    public void feed(){
+        assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.id("toolbar_logo_id")),
+                maxCheckTime,
+                msBetweenCheck));
+        click(By.id("toolbar_logo_id"));
     }
 
     public boolean explicitWait(final ExpectedCondition<?> condition, long maxCheckTimeInSeconds, long millisecondsBetweenChecks) {

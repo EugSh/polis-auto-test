@@ -7,10 +7,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static org.junit.Assert.assertTrue;
 
-public class LoginPage11 extends BasePage1 {
+public class LoginPage extends BasePage {
 
-    public LoginPage11(final WebDriver driver) {
+    public LoginPage(final WebDriver driver) {
         super(driver);
+        isLoginPage();
+    }
+
+    public void isLoginPage(){
+        check();
     }
 
     @Override

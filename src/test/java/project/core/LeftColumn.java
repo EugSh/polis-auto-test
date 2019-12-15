@@ -1,3 +1,4 @@
+/*
 package project.core;
 
 import org.openqa.selenium.By;
@@ -7,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static org.junit.Assert.assertTrue;
 
-public class LeftColumn extends BasePage1 {
+public class LeftColumn extends BasePage {
 
     public LeftColumn(final WebDriver driver) {
         super(driver);
@@ -18,12 +19,14 @@ public class LeftColumn extends BasePage1 {
         assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.id("leftColumn")),
                 10,
                 1000));
-        /*assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[contains(@data-l,'t,userFriend')]")),
+        */
+/*assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[contains(@data-l,'t,userFriend')]")),
                 10,
                 1000));
         assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[contains(@data-l,'t,userAltGroup')]")),
                 10,
-                1000));*/
+                1000));*//*
+
     }
 
     public Subscriptions checkSubscriptions() {
@@ -53,3 +56,4 @@ public class LeftColumn extends BasePage1 {
         }
     }
 }
+*/

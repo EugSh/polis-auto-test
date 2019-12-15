@@ -1,3 +1,4 @@
+/*
 package project.core;
 
 import org.openqa.selenium.By;
@@ -8,8 +9,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
-public class Header1 extends BasePage1 {
-    public Header1(WebDriver driver) {
+public class Header extends BasePage {
+    public Header(WebDriver driver) {
         super(driver);
     }
 
@@ -115,12 +116,14 @@ public class Header1 extends BasePage1 {
         }
 
         private void check() {
-            /*assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.className("gs_result_list")),
+            */
+/*assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.className("gs_result_list")),
                     10,
                     1000));
             assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.className("hookBlock")),
                     10,
-                    1000));*/
+                    1000));*//*
+
             assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[contains(text(), 'Добавить в друзья')]")),
                     10,
                     1000));
@@ -134,3 +137,4 @@ public class Header1 extends BasePage1 {
     }
 }
 
+*/
