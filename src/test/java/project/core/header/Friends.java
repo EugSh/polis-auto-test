@@ -37,6 +37,9 @@ public class Friends extends BasePage {
     }
 
     public boolean addFriend() {
+        assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[contains(text(), 'Добавить в друзья')]")),
+                10,
+                1000));
         click(ADD_FRIEND_LOCATOR);
         return driver.findElement(INVITE_SENT_LOCATOR).isDisplayed();
     }

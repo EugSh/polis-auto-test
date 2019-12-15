@@ -41,7 +41,7 @@ public class ToolBarDropDown extends BasePage {
 
     public void changeLanguage(final String language) {
         List<WebElement> l = driver.findElements(TOOLBAR_ACCOUNTS_MENU_LOCATOR);
-        l.get(4).click();
+        l.get(0).click();
         click(By.xpath(".//div[@class='sel-lang_list']/a[text()[contains(.,'" + language + "')]]"));
     }
 
@@ -52,5 +52,10 @@ public class ToolBarDropDown extends BasePage {
 
     private void confirm() {
         click(T_CONFIRM_LOCATOR);
+    }
+
+    public String currentLanguage(){
+        List<WebElement> l = driver.findElements(TOOLBAR_ACCOUNTS_MENU_LOCATOR);
+        return l.get(0).findElement(By.xpath("./div/span")).getAttribute("innerText");
     }
 }

@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 public class SimpleTest extends TestBase {
 
-    @Test
+//    @Test
     public void simpleTest() {
         LoginPage loginPage = new LoginPage(driver);
         TestBot bot = new TestBot("TechoBot7", "TechnoPolis19");
