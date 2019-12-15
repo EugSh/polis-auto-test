@@ -15,7 +15,7 @@ public class ChangeLanguageToEng extends TestBase {
     private String changeTo = "English";
     private Header header;
 
-//    @Before
+    @Before
     public void login(){
         final LoginPage loginPage = new LoginPage(driver);
         loginPage.doLogin(bot);
@@ -24,13 +24,13 @@ public class ChangeLanguageToEng extends TestBase {
         header.refresh();
     }
 
-//    @Test
+    @Test
     public void changeToEng(){
         header.clickToolBarDropDown().changeLanguage(changeTo);
         assertEquals(changeTo, header.clickToolBarDropDown().currentLanguage());
     }
 
-//    @After
+    @After
     public void resetLanguage(){
         header.clickToolBarDropDown().changeLanguage(currentLanguage);
     }
