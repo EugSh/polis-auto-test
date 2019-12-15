@@ -30,9 +30,9 @@ public class Friends extends BasePage {
             assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.className("hookBlock")),
                     10,
                     1000));*/
-        assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[contains(text(), 'Добавить в друзья')]")),
-                10,
-                1000));
+//        assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[contains(text(), 'Добавить в друзья')]")),
+//                10,
+//                1000));
 
     }
 
@@ -49,4 +49,18 @@ public class Friends extends BasePage {
         return driver.findElement(BUTTON_CLOSE_LOCATOR).isDisplayed();
     }
 
+    public Friends goToProfile(){
+        assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.xpath((".//*[contains(@class,'ellip')]/a[contains(@class,'gs_result_i_t_name')]"))),
+                maxCheckTime,
+                msBetweenCheck));
+        click(By.xpath((".//*[contains(@class,'ellip')]/a[contains(@class,'gs_result_i_t_name')]")));
+        return this;
+    }
+
+    public void klassPhoto(){
+        assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.xpath(".//div[contains(@class,'lcTc_avatar')]//span[contains(@class,'widget_cnt')]")),
+                maxCheckTime,
+                msBetweenCheck));
+        click(By.xpath(".//div[contains(@class,'lcTc_avatar')]//span[contains(@class,'widget_cnt')]"));
+    }
 }
