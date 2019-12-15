@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
 public class LoginTest extends TestBase {
     private final TestBot testBot = new TestBot("TechoBot7", "TechnoPolis19");
 
-//    @Test
+    @Test
     public void loginCheckAndLogout() {
         final LoginPage loginPage = new LoginPage(driver);
         loginPage.doLogin(testBot);

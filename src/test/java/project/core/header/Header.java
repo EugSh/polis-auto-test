@@ -19,8 +19,8 @@ public class Header extends BasePage {
     private static final By T_MESSAGES_LOCATOR = By.xpath(".//*[contains(@data-l,'t,messages')]");
     private static final By T_NOTIFICATIONS_LOCATOR = By.xpath(".//*[contains(@data-l,'t,notifications')]");
     private static final By T_GUESTS_LOCATOR = By.xpath(".//*[contains(@data-l,'t,guests')]");
+    private static final By USER_GRID_CARD_AVATAR_LOCATOR = By.className("user-grid-card_avatar");
     private static final By GUESTS_LOCATOR = By.className("user-grid-card_avatar");
-    private static final By T_EVENTS_LOCATOR = By.xpath(".//*[contains(@data-l,'t,marks')]");
 
 
     public Header(WebDriver driver) {
@@ -94,10 +94,5 @@ public class Header extends BasePage {
     public boolean checkGuests () {
         click(T_GUESTS_LOCATOR);
         return driver.findElement(GUESTS_LOCATOR).isDisplayed();
-    }
-
-    public Event checkEvent() {
-        click(T_EVENTS_LOCATOR);
-        return new Event(driver);
     }
 }

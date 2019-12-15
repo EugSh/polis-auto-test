@@ -1,5 +1,6 @@
 package project.tests;
 
+import com.fasterxml.jackson.databind.deser.DataFormatReaders;
 import org.junit.Before;
 import org.junit.Test;
 import project.core.LoginPage;
@@ -22,7 +23,7 @@ public class GuestTest extends TwoBotsBase {
         loginPage2.doLogin(testBot2);
     }
 
-//    @Test
+    @Test
     public void watchProfile() throws InterruptedException {
         header1 = new Header(driver1);
         header1.doSearch(testBot2.getLogin()).goToProfile();
