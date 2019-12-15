@@ -1,7 +1,6 @@
 package project.core;
 
 import project.model.TestBot;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -9,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import static org.junit.Assert.assertTrue;
 
 public class LoginPage extends BasePage {
+
     public LoginPage(final WebDriver driver) {
         super(driver);
         isLoginPage();
@@ -21,14 +21,14 @@ public class LoginPage extends BasePage {
     @Override
     protected void check() {
         assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.name("st.email")),
-                maxCheckTime,
-                msBetweenCheck));
+                10,
+                1000));
         assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.name("st.password")),
-                maxCheckTime,
-                msBetweenCheck));
+                10,
+                1000));
         assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[contains(@data-l,'t,sign_in')]")),
-                maxCheckTime,
-                msBetweenCheck));
+                10,
+                1000));
     }
 
     public void doLogin(TestBot testBot) {

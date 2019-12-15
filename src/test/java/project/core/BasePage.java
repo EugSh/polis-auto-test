@@ -15,7 +15,7 @@ public abstract class BasePage {
     protected WebDriver driver;
     private boolean acceptNextAlert = true;
     protected final int maxCheckTime = 10;
-    protected final int msBetweenCheck = 200;
+    protected final int msBetweenCheck = 1000;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
