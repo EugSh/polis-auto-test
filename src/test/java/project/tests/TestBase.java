@@ -23,7 +23,6 @@ public class TestBase {
 
     @After
     public void stop() {
-        driver.quit();
-        System.out.println("out");
+//        driver.quit();
     }
 }
