@@ -23,7 +23,7 @@ public class ChangeName extends TestBase {
         header = new Header(driver);
     }
 
-//    @Test
+    @Test
     public void changeNameAndCheck() {
         header.clickToolBarDropDown().clickSettingAndChangeName(changeName);
         assertEquals(newFirstLastName, header.clickToolBarDropDown().clickFirstLastName());
