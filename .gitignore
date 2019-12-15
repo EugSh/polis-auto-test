@@ -9,5 +9,6 @@
 !gradlew
 !build.gradle
 !settings.gradle
+!testCases
 
 !*/
