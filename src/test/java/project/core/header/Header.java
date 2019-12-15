@@ -21,10 +21,6 @@ public class Header extends BasePage {
         return new ToolBarDropDown(driver);
     }
 
-    public void feed(){
-        click(By.id("toolbar_logo_id"));
-    }
-
     @Override
     protected void check() {
         assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.className("toolbar_dropdown_w")),

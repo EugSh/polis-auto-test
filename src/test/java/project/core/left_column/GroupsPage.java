@@ -27,6 +27,9 @@ public class GroupsPage extends BasePage {
         assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[contains(@data-l,'t,visit')][text()[contains(.,'" + groupName + "')]]")),
                 maxCheckTime,
                 msBetweenCheck));
+        assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[contains(@data-l,'t,join')]")),
+                maxCheckTime,
+                msBetweenCheck));
         click(By.xpath(".//*[contains(@data-l,'t,join')]"));
 //        By.xpath(".//*[contains(@class,'caption')]//*[contains(@class,'join-group-result')]")
     }

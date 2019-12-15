@@ -7,8 +7,7 @@ import project.core.header.Header;
 import project.core.left_column.LeftColumn;
 import project.model.TestBot;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class SimpleTest extends TestBase {
 
@@ -21,8 +20,13 @@ public class SimpleTest extends TestBase {
         Header header = new Header(driver);
         leftColumn.groups().searchAndJoinToGroup("Hi-Tech Mail");
 //        leftColumn.refresh();
-        header.feed();
+        leftColumn.feed();
         assertTrue(leftColumn.groups().checkThatJoined("Hi-Tech Mail"));
+        leftColumn.feed();
+        leftColumn.groups().quitFromGroup("Hi-Tech Mail");
+        leftColumn.feed();
+        assertFalse(leftColumn.groups().checkThatJoined("Hi-Tech Mail"));
+
 //        leftColumn.groups().quitFromGroup("Hi-Tech Mail");
 //        Header header = new Header(driver);
 //        MiddleColumn middleColumn = new MiddleColumn(driver);
