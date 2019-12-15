@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static org.junit.Assert.assertTrue;
 
-public class LeftColumn extends BasePage {
+public class LeftColumn extends BasePage1 {
 
     public LeftColumn(final WebDriver driver) {
         super(driver);

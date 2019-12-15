@@ -8,11 +8,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.google.common.base.Preconditions;
 
-public abstract class BasePage {
+public abstract class BasePage1 {
     protected WebDriver driver;
     private boolean acceptNextAlert = true;
 
-    public BasePage(WebDriver driver) {
+    public BasePage1(WebDriver driver) {
         this.driver = driver;
         check();
     }

@@ -3,9 +3,9 @@ package project.tests;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import project.core.Header;
+import project.core.Header1;
 import project.core.LeftColumn;
-import project.core.LoginPage;
+import project.core.LoginPage11;
 import project.model.TestBot;
 
 import static junit.framework.TestCase.assertFalse;
@@ -16,10 +16,10 @@ public class FisrtBot {
     public void addFriend() throws InterruptedException {
         WebDriver webDriver = new ChromeDriver();
         webDriver.get("https://ok.ru");
-        LoginPage loginPage = new LoginPage(webDriver);
-        loginPage.doLogin(new TestBot("TechoBot7", "TechnoPolis19"));
-        Header header = new Header(webDriver);
-        assertTrue(header.doSearch("TechoBot15").addFriend());
+        LoginPage11 loginPage1 = new LoginPage11(webDriver);
+        loginPage1.doLogin(new TestBot("TechoBot7", "TechnoPolis19"));
+        Header1 header1 = new Header1(webDriver);
+        assertTrue(header1.doSearch("TechoBot15").addFriend());
         Thread.sleep(1000);
     }
 
@@ -27,10 +27,10 @@ public class FisrtBot {
     public void agreeFriend() throws InterruptedException {
         WebDriver webDriver = new ChromeDriver();
         webDriver.get("https://ok.ru");
-        LoginPage loginPage = new LoginPage(webDriver);
-        loginPage.doLogin(new TestBot("TechoBot15", "TechnoPolis19"));
-        Header header = new Header(webDriver);
-        assertTrue(header.checkNotifications().agree());
+        LoginPage11 loginPage1 = new LoginPage11(webDriver);
+        loginPage1.doLogin(new TestBot("TechoBot15", "TechnoPolis19"));
+        Header1 header1 = new Header1(webDriver);
+        assertTrue(header1.checkNotifications().agree());
         Thread.sleep(1000);
     }
 
@@ -38,50 +38,50 @@ public class FisrtBot {
     public void sendMessage() {
         WebDriver webDriver = new ChromeDriver();
         webDriver.get("https://ok.ru");
-        LoginPage loginPage = new LoginPage(webDriver);
-        loginPage.doLogin(new TestBot("TechoBot15", "TechnoPolis19"));
-        Header header = new Header(webDriver);
-        header.sendMessage();
+        LoginPage11 loginPage1 = new LoginPage11(webDriver);
+        loginPage1.doLogin(new TestBot("TechoBot15", "TechnoPolis19"));
+        Header1 header1 = new Header1(webDriver);
+        header1.sendMessage();
     }
 
     @Test
     public void readMessage() {
         WebDriver webDriver = new ChromeDriver();
         webDriver.get("https://ok.ru");
-        LoginPage loginPage = new LoginPage(webDriver);
-        loginPage.doLogin(new TestBot("TechoBot7", "TechnoPolis19"));
-        Header header = new Header(webDriver);
-        header.readMessage();
+        LoginPage11 loginPage1 = new LoginPage11(webDriver);
+        loginPage1.doLogin(new TestBot("TechoBot7", "TechnoPolis19"));
+        Header1 header1 = new Header1(webDriver);
+        header1.readMessage();
     }
 
     @Test
     public void watchProfile() {
         WebDriver webDriver = new ChromeDriver();
         webDriver.get("https://ok.ru");
-        LoginPage loginPage = new LoginPage(webDriver);
-        loginPage.doLogin(new TestBot("TechoBot7", "TechnoPolis19"));
-        Header header = new Header(webDriver);
-        header.watchProfile();
+        LoginPage11 loginPage1 = new LoginPage11(webDriver);
+        loginPage1.doLogin(new TestBot("TechoBot7", "TechnoPolis19"));
+        Header1 header1 = new Header1(webDriver);
+        header1.watchProfile();
     }
 
     @Test
     public void checkGuests() {
         WebDriver webDriver = new ChromeDriver();
         webDriver.get("https://ok.ru");
-        LoginPage loginPage = new LoginPage(webDriver);
-        loginPage.doLogin(new TestBot("TechoBot15", "TechnoPolis19"));
-        Header header = new Header(webDriver);
-        header.checkGuests();
+        LoginPage11 loginPage1 = new LoginPage11(webDriver);
+        loginPage1.doLogin(new TestBot("TechoBot15", "TechnoPolis19"));
+        Header1 header1 = new Header1(webDriver);
+        header1.checkGuests();
     }
 
     @Test
     public void deleteFriend() throws InterruptedException {
         WebDriver webDriver = new ChromeDriver();
         webDriver.get("https://ok.ru");
-        LoginPage loginPage = new LoginPage(webDriver);
-        loginPage.doLogin(new TestBot("TechoBot7", "TechnoPolis19"));
-        Header header = new Header(webDriver);
-        assertTrue(header.deleteFriend());
+        LoginPage11 loginPage1 = new LoginPage11(webDriver);
+        loginPage1.doLogin(new TestBot("TechoBot7", "TechnoPolis19"));
+        Header1 header1 = new Header1(webDriver);
+        assertTrue(header1.deleteFriend());
         Thread.sleep(1000);
     }
 
@@ -89,8 +89,8 @@ public class FisrtBot {
     public void cancelSubscription() throws InterruptedException {
         WebDriver webDriver = new ChromeDriver();
         webDriver.get("https://ok.ru");
-        LoginPage loginPage = new LoginPage(webDriver);
-        loginPage.doLogin(new TestBot("TechoBot15", "TechnoPolis19"));
+        LoginPage11 loginPage1 = new LoginPage11(webDriver);
+        loginPage1.doLogin(new TestBot("TechoBot15", "TechnoPolis19"));
         LeftColumn leftColumn = new LeftColumn(webDriver);
         assertFalse(leftColumn.checkSubscriptions().unsubscribe());
         Thread.sleep(1000);

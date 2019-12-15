@@ -8,8 +8,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
-public class Header extends BasePage {
-    public Header(WebDriver driver) {
+public class Header1 extends BasePage1 {
+    public Header1(WebDriver driver) {
         super(driver);
     }
 
