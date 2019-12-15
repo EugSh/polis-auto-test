@@ -21,14 +21,14 @@ public class LoginPage extends BasePage {
     @Override
     protected void check() {
         assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.name("st.email")),
-                10,
-                1000));
+                maxCheckTime,
+                msBetweenCheck));
         assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.name("st.password")),
-                10,
-                1000));
+                maxCheckTime,
+                msBetweenCheck));
         assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[contains(@data-l,'t,sign_in')]")),
-                10,
-                1000));
+                maxCheckTime,
+                msBetweenCheck));
     }
 
     public void doLogin(TestBot testBot) {
