@@ -23,8 +23,8 @@ public class DropDownToolBar extends BasePage {
         return new LoginPage(driver);
     }
 
-
-
-
+    public String getName(){
+        throw new UnsupportedOperationException();
+    }
 
 }
