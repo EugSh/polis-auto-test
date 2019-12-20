@@ -20,13 +20,13 @@ public class MiddleColumn extends BasePage {
                 msBetweenCheck));
     }
 
-    public FeelingFrame postFeeling() {//throws InterruptedException {
+    public FeelingFrame postFeeling() {
         click(By.xpath(".//*[contains(@data-l,'t,pf_feeling_button')]"));
-//        try {
-//            Thread.sleep(2000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return new FeelingFrame(driver);
     }
 
