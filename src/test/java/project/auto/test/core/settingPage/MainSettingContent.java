@@ -12,7 +12,6 @@ import java.util.List;
 import static org.junit.Assert.assertTrue;
 
 public class MainSettingContent extends BasePage {
-    //TODO: написать javadoc и логи
     private final List<SettingItem> items;
     private final By settingItemLocator = By.xpath(".//*[contains(@class,'user-settings')]/a");
 

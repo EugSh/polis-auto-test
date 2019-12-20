@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 import project.auto.test.BasePage;
 
 public class PersonalInfoLayer extends BasePage {
-    //TODO: сделать javadoc и логирование
     private final By inputNameLocator = By.name("fr.name");
     private final By saveBtnLocator = By.xpath("//*[contains(@data-l,'t,confirm')]");
     private final By closeBtnLocator = By.id("buttonId_button_close");

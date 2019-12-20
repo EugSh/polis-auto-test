@@ -12,7 +12,6 @@ import java.util.List;
 import static org.junit.Assert.assertTrue;
 
 public class LanguageLayer extends BasePage {
-    //TODO: добавить javadoc и логирование
     private final List<LanguageItem> items;
     private final By languegesLocator = By.xpath(".//*[contains(@class,'sel-lang_list')]/a");
     private final By currentLanguageLocator = By.xpath(".//*[contains(@class,'sel-lang_list')]/div");
