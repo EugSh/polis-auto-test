@@ -22,11 +22,11 @@ public class MiddleColumn extends BasePage {
 
     public FeelingFrame postFeeling() {//throws InterruptedException {
         click(By.xpath(".//*[contains(@data-l,'t,pf_feeling_button')]"));
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(2000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         return new FeelingFrame(driver);
     }
 

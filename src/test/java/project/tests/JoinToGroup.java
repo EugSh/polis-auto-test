@@ -22,7 +22,7 @@ public class JoinToGroup extends TestBase {
         leftColumn = new LeftColumn(driver);
     }
 
-    @Test
+//    @Test
     public void joinToGroupAndCheckThanJoined(){
         leftColumn.groups().searchAndJoinToGroup(groupName);
         leftColumn.feed();
