@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import project.auto.test.BasePage;
+import project.auto.test.core.Utils;
 import project.auto.test.core.loginPage.LoginPage;
 import project.auto.test.core.settingPage.SettingPage;
 
@@ -14,7 +15,6 @@ import java.util.List;
 import static org.junit.Assert.assertTrue;
 
 public class DropDownToolBar extends BasePage {
-    private static final Logger log = LoggerFactory.getLogger(DropDownToolBar.class);
     private final By logoutLocator = By.xpath(".//*[contains(@data-l,'t,logoutCurrentUser')]");
     private final By toolBarItems = By.xpath(".//*[contains(@data-l,'newbieCContainer,user_toolbar')]//li");
     private final By uCardMini = By.className("ucard-mini_cnt_i");
@@ -26,14 +26,12 @@ public class DropDownToolBar extends BasePage {
      * и нажать на один из элементов списке,
      * тк элементы похожи их можно обернуть в объект {@link DropDownToolBarMenuItem}.
      *
-     * @param driver WebDriver
+     * @param driver {@link WebDriver}
      */
     public DropDownToolBar(WebDriver driver) {
         super(driver);
-        log.info("Проверяем, что элементы в выпадающем списке прогружен.");
         check();
-        log.info("Оборачиваем элементы в выпадающем списке.");
-        items = DropDownToolBarMenuItem.wrapMenu(driver.findElements(toolBarItems));
+        items = Utils.wrapElemnts(DropDownToolBarMenuItem::new, driver.findElements(toolBarItems));
     }
 
     @Override
@@ -43,21 +41,32 @@ public class DropDownToolBar extends BasePage {
                 msBetweenCheck));
     }
 
+    /**
+     * Нажимаем на кнопку Выйти.
+     *
+     * @return {@link LoginPage}
+     */
     public LoginPage logOut() {
-        log.info("Нажимаем на кнопку Выйти.");
         click(logoutLocator);
-        log.info("Возвращаем объект класса LoginPage, тк после выхода открывается имено эта страница.");
         return new LoginPage(driver);
     }
 
+    /**
+     * Возвращаем Имя и Фамилию пользователя.
+     *
+     * @return {@link String} "Имя Фамилия"
+     */
     public String getName() {
-        log.info("Возвращаем Имя и Фамилию пользователя.");
         return getInnerText(uCardMini);
     }
 
+    /**
+     * Нажимаем на кнопку Изменить настройки, тк она четвертая по счету,
+     * то нужно достать соответсвующий элемент из коллекции.
+     *
+     * @return {@link SettingPage}
+     */
     public SettingPage clickSetting() {
-        log.info("Нажимаем на кнопку Изменить настройки, тк она четвертая по счету, " +
-                "то нужно достать соответсвующий элемент из коллекции.");
         items.get(3).click();
         return new SettingPage(driver);
     }

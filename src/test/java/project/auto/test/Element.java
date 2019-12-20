@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import project.auto.test.core.Utils;
 
 import java.util.concurrent.TimeUnit;
 
@@ -32,8 +33,8 @@ public class Element {
     }
 
     protected String getInnerText(By locator) {
-        if (isElementPresent(locator)){
-            return driver.findElement(locator).getAttribute("innerText");
+        if (isElementPresent(locator)) {
+            return Utils.getInnerText(driver, locator);
         }
         //TODO: Изменить сообщение об отсутствии элемента и сделать нормальный assert
         throw new AssertionFailedError("message");
