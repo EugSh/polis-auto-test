@@ -1,6 +1,5 @@
 package project.tests;
 
-import com.fasterxml.jackson.databind.deser.DataFormatReaders;
 import org.junit.Before;
 import org.junit.Test;
 import project.core.LoginPage;

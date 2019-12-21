@@ -29,7 +29,7 @@ public class MainSettingContent extends BasePage {
 
     @Override
     protected void check() {
-        assertTrue(explicitWait(ExpectedConditions.presenceOfAllElementsLocatedBy(settingItemLocator),
+        assertTrue(explicitWait(ExpectedConditions.visibilityOfAllElementsLocatedBy(settingItemLocator),
                 maxCheckTime,
                 msBetweenCheck));
     }

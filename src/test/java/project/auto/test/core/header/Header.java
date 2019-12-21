@@ -57,27 +57,38 @@ public class Header extends BasePage {
     }
 
     public NotificationLayer clickNotification() {
-        toolBarItems.get(2).click();
+        toolBarItems.get(NavToolBarItems.Notifications.ordinal()).click();
         //TODO : добавить параметры конструктора, когда будут реализован соответствующий класс
         return new NotificationLayer();
     }
 
     public FriendsPage clickFriends() {
-        toolBarItems.get(3).click();
+        toolBarItems.get(NavToolBarItems.Friends.ordinal()).click();
         //TODO : добавить параметры конструктора, когда будут реализован соответствующий класс
         return new FriendsPage();
     }
 
     public GuestsPage clickGuest() {
-        toolBarItems.get(4).click();
+        toolBarItems.get(NavToolBarItems.Guests.ordinal()).click();
         //TODO : добавить параметры конструктора, когда будут реализован соответствующий класс
         return new GuestsPage();
     }
 
     public MessageLayer clickMessage() {
-        toolBarItems.get(0).click();
+        toolBarItems.get(NavToolBarItems.Messages.ordinal()).click();
         //TODO : добавить параметры конструктора, когда будут реализован соответствующий класс
         return new MessageLayer();
+    }
+
+    private enum NavToolBarItems {
+        Messages,
+        Discussions,
+        Notifications,
+        Friends,
+        Guests,
+        Events,
+        Video,
+        Music
     }
 
 }

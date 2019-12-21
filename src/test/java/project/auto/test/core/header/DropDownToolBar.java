@@ -34,7 +34,7 @@ public class DropDownToolBar extends BasePage {
 
     @Override
     protected void check() {
-        assertTrue(explicitWait(ExpectedConditions.presenceOfAllElementsLocatedBy(toolBarItems),
+        assertTrue(explicitWait(ExpectedConditions.visibilityOfAllElementsLocatedBy(toolBarItems),
                 maxCheckTime,
                 msBetweenCheck));
     }

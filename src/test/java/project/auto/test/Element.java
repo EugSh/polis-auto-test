@@ -24,29 +24,26 @@ public class Element {
     }
 
     protected void type(String text, By locator) {
-        if (isElementPresent(locator)) {
+        if (isElementVisible(locator)) {
             driver.findElement(locator).clear();
             driver.findElement(locator).sendKeys(text);
         }
-        //TODO: другое сообщение
-        throw new AssertionFailedError("123");
+        throw new AssertionFailedError("Элемент(" + locator + "), в который вы пытаетесь ввести текст(" + text + "), не виден.");
     }
 
     protected String getInnerText(By locator) {
-        if (isElementPresent(locator)) {
+        if (isElementVisible(locator)) {
             return Utils.getInnerText(driver, locator);
         }
-        //TODO: Изменить сообщение об отсутствии элемента и сделать нормальный assert
-        throw new AssertionFailedError("message");
+        throw new AssertionFailedError("Элемент(" + locator + "), из которого вы патаете достать текст, не виден");
     }
 
     protected void click(By locator) {
-        if (isElementPresent(locator)) {
+        if (isElementVisible(locator)) {
             driver.findElement(locator).click();
             return;
         }
-        //TODO: изменить сообщение об отсутсвии элемента
-        throw new AssertionFailedError("message");
+        throw new AssertionFailedError("Элемент (" + locator + "), на который вы пытаетесь нажать, не виден.");
     }
 
 

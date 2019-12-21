@@ -13,6 +13,8 @@ import static org.junit.Assert.assertTrue;
 
 public class FeelingLayer extends BasePage {
     private final By feelingCardsLocator = By.xpath(".//*[contains(@class,'feeling-layer_list_i')]");
+    private final By textAreaLocator = By.name("st.layer.fieldFeelingText");
+    private final By btnPost = By.xpath((".//*[contains(@class,'feeling-layer_form')]//*[contains(@class,'button-pro')]"));
     private final List<FeelingCard> feelingCards;
 
     public FeelingLayer(WebDriver driver) {
@@ -23,7 +25,7 @@ public class FeelingLayer extends BasePage {
 
     @Override
     protected void check() {
-        assertTrue(explicitWait(ExpectedConditions.presenceOfAllElementsLocatedBy(feelingCardsLocator),
+        assertTrue(explicitWait(ExpectedConditions.visibilityOfAllElementsLocatedBy(feelingCardsLocator),
                 maxCheckTime,
                 msBetweenCheck));
     }
@@ -33,6 +35,17 @@ public class FeelingLayer extends BasePage {
         if (cardIndex < 0) {
             throw new AssertionFailedError("Указанный вами алиас (" + alias + ") не найден среди доступных." + feelingCards);
         }
-        throw new UnsupportedOperationException();
+        feelingCards.get(cardIndex).click();
+        return this;
+    }
+
+    public FeelingLayer enterText(final String text) {
+        type(text, textAreaLocator);
+        return this;
+    }
+
+    public HomePage clickPost() {
+        click(btnPost);
+        return new HomePage(driver);
     }
 }

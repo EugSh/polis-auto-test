@@ -8,4 +8,8 @@ public class UserProfilePage {
         throw new UnsupportedOperationException();
     }
 
+    public UserProfilePage clickLikeAvatar(){
+        throw new UnsupportedOperationException();
+    }
+
 }

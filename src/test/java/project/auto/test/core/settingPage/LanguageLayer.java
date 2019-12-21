@@ -29,7 +29,7 @@ public class LanguageLayer extends BasePage {
 
     @Override
     protected void check() {
-        assertTrue(explicitWait(ExpectedConditions.presenceOfAllElementsLocatedBy(languegesLocator),
+        assertTrue(explicitWait(ExpectedConditions.visibilityOfAllElementsLocatedBy(languegesLocator),
                 maxCheckTime,
                 msBetweenCheck));
     }

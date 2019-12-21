@@ -20,9 +20,9 @@ public class LoginPage extends BasePage {
 
     @Override
     protected void check() {
-        assertTrue(isElementPresent(loginField));
-        assertTrue(isElementPresent(passwordField));
-        assertTrue(isElementPresent(signInButton));
+        assertTrue(isElementVisible(loginField));
+        assertTrue(isElementVisible(passwordField));
+        assertTrue(isElementVisible(signInButton));
     }
 
     public HomePage doLogin(final TestBot bot) {
