@@ -29,4 +29,11 @@ public class LanguageItem {
     public void click() {
         element.click();
     }
+
+    @Override
+    public String toString() {
+        return "LanguageItem{" +
+                "langName='" + langName + '\'' +
+                '}';
+    }
 }

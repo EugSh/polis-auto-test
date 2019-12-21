@@ -3,8 +3,6 @@ package project.auto.test.core.header;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import project.auto.test.BasePage;
 import project.auto.test.core.Utils;
 import project.auto.test.core.loginPage.LoginPage;
@@ -31,7 +29,7 @@ public class DropDownToolBar extends BasePage {
     public DropDownToolBar(WebDriver driver) {
         super(driver);
         check();
-        items = Utils.wrapElemnts(DropDownToolBarMenuItem::new, driver.findElements(toolBarItems));
+        items = Utils.wrapElements(DropDownToolBarMenuItem::new, driver.findElements(toolBarItems));
     }
 
     @Override

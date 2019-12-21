@@ -2,7 +2,6 @@ package project.auto.test.core.settingPage;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import project.auto.test.BasePage;
 import project.auto.test.core.Utils;
@@ -25,7 +24,7 @@ public class MainSettingContent extends BasePage {
     public MainSettingContent(WebDriver driver) {
         super(driver);
         check();
-        items = Utils.wrapElemnts(SettingItem::new, driver.findElements(settingItemLocator));
+        items = Utils.wrapElements(SettingItem::new, driver.findElements(settingItemLocator));
     }
 
     @Override

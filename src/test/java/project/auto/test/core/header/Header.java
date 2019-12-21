@@ -30,7 +30,7 @@ public class Header extends BasePage {
     public Header(WebDriver driver) {
         super(driver);
         check();
-        toolBarItems = Utils.wrapElemnts(ToolBarItem::new, driver.findElements(toolBarItemsLocator));
+        toolBarItems = Utils.wrapElements(ToolBarItem::new, driver.findElements(toolBarItemsLocator));
     }
 
     @Override
