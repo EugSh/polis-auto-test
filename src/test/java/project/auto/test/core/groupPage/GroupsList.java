@@ -19,7 +19,8 @@ public class GroupsList extends BasePage {
     public GroupsList(WebDriver driver) {
         super(driver);
         check();
-        cards = Utils.wrapElements(e -> new GroupCard(e, driver), driver.findElements(groupCardLocator));
+        cards = Utils.wrapElements(e -> new GroupCard(driver, e),
+                driver.findElements(groupCardLocator));
     }
 
     @Override
@@ -30,7 +31,7 @@ public class GroupsList extends BasePage {
     }
 
     public GroupCard getByName(final String name) {
-        final int index = Utils.getFirstIndex(cards, name, GroupCard::getTitle, GroupCard.COMPARATOR);
+        final int index = Utils.getFirstIndex(cards, name, GroupCard::getTitle, Utils.getLiteComparator());
         if (index == -1) {
             throw new AssertionFailedError("Указанная вами группа (" + name + ") не найденна среди групп пользователя.");
         }

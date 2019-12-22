@@ -1,7 +1,6 @@
 package project.auto.test.core;
 
-import com.sun.tools.javac.util.StringUtils;
-import junit.framework.AssertionFailedError;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebElement;
@@ -11,6 +10,8 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.Function;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Utils {
     public static final String INNER_TEXT_ATTR = "innerText";
@@ -38,6 +39,10 @@ public class Utils {
 
     public static String getAttribute(final SearchContext element, final By locator, final String attributeName) {
         return element.findElement(locator).getAttribute(attributeName);
+    }
+
+    public static void click(final SearchContext element, final By locator){
+
     }
 
     /**
@@ -79,5 +84,28 @@ public class Utils {
         return -1;
     }
 
-
+    /**
+     * Метод возвращает компаратор для сравния двух строк. Строки равны, если строка
+     * меньшей длины целиком содержится в строке с большей длиной
+     *
+     * @return целое число, результат сравнения. 0 - строка с меньшей длиной целиком содержится в другой строке, иначе
+     * 1 -- длина первой строки больше длины второй, -1 -- длина второй больше длины первой
+     */
+    public static Comparator<String> getLiteComparator() {
+        return (str1, str2) -> {
+            if (str1.length() > str2.length()) {
+                final Pattern pattern = Pattern.compile(str2);
+                final Matcher matcher = pattern.matcher(str1);
+                return matcher.find() ?
+                        0 :
+                        1;
+            } else {
+                final Pattern pattern = Pattern.compile(str1);
+                final Matcher matcher = pattern.matcher(str2);
+                return matcher.find() ?
+                        0 :
+                        -1;
+            }
+        };
+    }
 }

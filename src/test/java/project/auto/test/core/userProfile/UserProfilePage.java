@@ -1,15 +1,48 @@
 package project.auto.test.core.userProfile;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import project.auto.test.BasePage;
+import project.auto.test.core.Utils;
 import project.auto.test.core.header.message.MessageLayer;
 
-public class UserProfilePage {
+import java.util.List;
 
-    public MessageLayer clickWriteMessage(){
-        throw new UnsupportedOperationException();
+import static org.junit.Assert.assertTrue;
+
+public class UserProfilePage extends BasePage {
+    private final By avatarLocator = By.xpath(".//*[contains(@class, 'entity-avatar')]");
+    private final By actionMenuItemsLocator = By.xpath(".//*[contains(@class, 'header-action-menu')]/li");
+    private final List<ProfileActionMenuItem> menuItemList;
+
+    public UserProfilePage(WebDriver driver) {
+        super(driver);
+        check();
+        menuItemList = Utils.wrapElements(ProfileActionMenuItem::new, driver.findElements(actionMenuItemsLocator));
     }
 
-    public UserProfilePage clickLikeAvatar(){
-        throw new UnsupportedOperationException();
+
+    @Override
+    protected void check() {
+        assertTrue(explicitWait(ExpectedConditions.visibilityOfAllElementsLocatedBy(actionMenuItemsLocator),
+                maxCheckTime,
+                msBetweenCheck));
     }
 
+    public MessageLayer clickWriteMessage() {
+        menuItemList.get(ActionMenuItems.Write.ordinal()).click();
+        return new MessageLayer();
+    }
+
+    public PhotosLayer clickAvatar() {
+        click(avatarLocator);
+        return new PhotosLayer(driver);
+    }
+
+    private enum ActionMenuItems {
+        AddToFriends,
+        Write,
+        Other
+    }
 }

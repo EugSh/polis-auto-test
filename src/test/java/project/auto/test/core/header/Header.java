@@ -7,6 +7,7 @@ import project.auto.test.BasePage;
 import project.auto.test.core.Utils;
 import project.auto.test.core.friendsPage.FriendsPage;
 import project.auto.test.core.guestPage.GuestsPage;
+import project.auto.test.core.header.events.EventsLayer;
 import project.auto.test.core.header.message.MessageLayer;
 import project.auto.test.core.header.notification.NotificationLayer;
 import project.auto.test.core.searchPage.SearchPage;
@@ -53,7 +54,7 @@ public class Header extends BasePage {
 
     public SearchPage clickLupa() {
         //TODO : добавить параметры конструктора, когда будут реализован соответствующий класс
-        return new SearchPage();
+        return new SearchPage(driver);
     }
 
     public NotificationLayer clickNotification() {
@@ -78,6 +79,11 @@ public class Header extends BasePage {
         toolBarItems.get(NavToolBarItems.Messages.ordinal()).click();
         //TODO : добавить параметры конструктора, когда будут реализован соответствующий класс
         return new MessageLayer();
+    }
+
+    public EventsLayer clickEvents() {
+        toolBarItems.get(NavToolBarItems.Events.ordinal()).click();
+        return new EventsLayer(driver);
     }
 
     private enum NavToolBarItems {

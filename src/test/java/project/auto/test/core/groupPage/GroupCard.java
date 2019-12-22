@@ -11,20 +11,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class GroupCard extends Element {
-    public static final Comparator<String> COMPARATOR = (str, key) -> {
-        final Pattern pattern = Pattern.compile(key);
-        final Matcher matcher = pattern.matcher(str);
-        return matcher.find() ?
-                0 :
-                str.length() > key.length() ?
-                        1 :
-                        -1;
-    };
     private final WebElement element;
     private final By relativeTitleLocator = By.xpath(".//a[contains(@data-l, 't,visit')]");
     private final String title;
 
-    public GroupCard(WebElement element, WebDriver driver) {
+    public GroupCard(WebDriver driver, WebElement element) {
         super(driver);
         this.element = element;
         this.title = Utils.getInnerText(element, relativeTitleLocator);

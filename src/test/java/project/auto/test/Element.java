@@ -2,10 +2,7 @@ package project.auto.test;
 
 import com.google.common.base.Preconditions;
 import junit.framework.AssertionFailedError;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -32,15 +29,23 @@ public class Element {
     }
 
     protected String getInnerText(By locator) {
+        return getInnerText(driver, locator);
+    }
+
+    protected String getInnerText(SearchContext context, By locator) {
         if (isElementVisible(locator)) {
-            return Utils.getInnerText(driver, locator);
+            return Utils.getInnerText(context, locator);
         }
         throw new AssertionFailedError("Элемент(" + locator + "), из которого вы патаете достать текст, не виден");
     }
 
     protected void click(By locator) {
+        click(driver, locator);
+    }
+
+    protected void click(SearchContext context, By locator) {
         if (isElementVisible(locator)) {
-            driver.findElement(locator).click();
+            context.findElement(locator).click();
             return;
         }
         throw new AssertionFailedError("Элемент (" + locator + "), на который вы пытаетесь нажать, не виден.");
