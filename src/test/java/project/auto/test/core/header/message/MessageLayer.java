@@ -1,20 +1,40 @@
 package project.auto.test.core.header.message;
 
-public class MessageLayer {
+import junit.framework.AssertionFailedError;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import project.auto.test.BasePage;
+import project.auto.test.core.Utils;
+import project.auto.test.core.groupPage.GroupCard;
 
-    public MessageLayer write() {
-        throw new UnsupportedOperationException();
+import java.util.List;
+
+import static org.junit.Assert.assertTrue;
+
+public class MessageLayer extends BasePage {
+    private final List<DialogItem> items;
+    private static final By LEFT_MENU_MESSAGE_LOCATOR = By.xpath(".//div[contains(@data-l, 't,listItems')]");
+
+    public MessageLayer(WebDriver driver) {
+        super(driver);
+        check();
+        items = Utils.wrapElements(DialogItem::new, driver.findElements(LEFT_MENU_MESSAGE_LOCATOR));
     }
 
-    public MessageLayer clickSend() {
-        throw new UnsupportedOperationException();
+    @Override
+    protected void check() {
+        assertTrue(explicitWait(ExpectedConditions.presenceOfAllElementsLocatedBy(LEFT_MENU_MESSAGE_LOCATOR),
+                maxCheckTime,
+                msBetweenCheck));
     }
 
-    public MessageLayer clickByName() {
-        throw new UnsupportedOperationException();
+    public DialogItem clickByName(String name) {
+        final int index = Utils.getFirstIndex(items, name, DialogItem::getDialogName);
+        if (index == -1) {
+            throw new AssertionFailedError("Указанное вами имя (" + name + ") не найдено среди диалогов пользователя.");
+        }
+        return items.get(index).clickDialogItem();
     }
 
-    public String getLastMessage() {
-        throw new UnsupportedOperationException();
-    }
 }

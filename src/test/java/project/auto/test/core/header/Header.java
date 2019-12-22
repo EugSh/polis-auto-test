@@ -17,9 +17,9 @@ import java.util.List;
 import static org.junit.Assert.assertTrue;
 
 public class Header extends BasePage {
-    private static final By dropDownToolBarLocator = By.className("toolbar_dropdown_w");
-    private static final By toolBarItemsLocator = By.xpath((".//*[contains(@class,'toolbar_nav')]//li"));
-    private static final By lupaLocator = By.id("lsBtn");
+    private final By dropDownToolBarLocator = By.className("toolbar_dropdown_w");
+    private final By toolBarItemsLocator = By.xpath((".//*[contains(@class,'toolbar_nav')]//li"));
+    private static final By TOOLBAR_SEARCH_LUPA_LOCATOR = By.className("toolbar_search_lupa");
     private final List<ToolBarItem> toolBarItems;
 
     /**
@@ -40,6 +40,9 @@ public class Header extends BasePage {
         assertTrue(explicitWait(ExpectedConditions.presenceOfAllElementsLocatedBy(toolBarItemsLocator),
                 maxCheckTime,
                 msBetweenCheck));
+        assertTrue(explicitWait(ExpectedConditions.presenceOfAllElementsLocatedBy(TOOLBAR_SEARCH_LUPA_LOCATOR),
+                maxCheckTime,
+                msBetweenCheck));
     }
 
     /**
@@ -54,33 +57,28 @@ public class Header extends BasePage {
     }
 
     public SearchPage clickLupa() {
-        //TODO : добавить параметры конструктора, когда будут реализован соответствующий класс
-        click(lupaLocator);
+        click(TOOLBAR_SEARCH_LUPA_LOCATOR);
         return new SearchPage(driver);
     }
 
     public NotificationLayer clickNotification() {
         toolBarItems.get(NavToolBarItems.Notifications.ordinal()).click();
-        //TODO : добавить параметры конструктора, когда будут реализован соответствующий класс
-        return new NotificationLayer();
+        return new NotificationLayer(driver);
     }
 
     public FriendsPage clickFriends() {
         toolBarItems.get(NavToolBarItems.Friends.ordinal()).click();
-        //TODO : добавить параметры конструктора, когда будут реализован соответствующий класс
-        return new FriendsPage();
+        return new FriendsPage(driver);
     }
 
     public GuestsPage clickGuest() {
         toolBarItems.get(NavToolBarItems.Guests.ordinal()).click();
-        //TODO : добавить параметры конструктора, когда будут реализован соответствующий класс
-        return new GuestsPage();
+        return new GuestsPage(driver);
     }
 
     public MessageLayer clickMessage() {
         toolBarItems.get(NavToolBarItems.Messages.ordinal()).click();
-        //TODO : добавить параметры конструктора, когда будут реализован соответствующий класс
-        return new MessageLayer();
+        return new MessageLayer(driver);
     }
 
     public EventsLayer clickEvents() {
