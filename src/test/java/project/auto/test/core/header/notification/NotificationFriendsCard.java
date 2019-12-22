@@ -9,7 +9,7 @@ public class NotificationFriendsCard {
     private final String notificationFriendsName;
     private static final By relativeNotificationFriendsNameNameLocator = By.xpath(".//*[contains(@data-l, 'nA,LINK_USER,t,user_link')]");
     private static final By BTN_ACCEPT_LOCATOR = By.xpath(".//*[contains(@data-l,'t,btn_accept')]");
-    private static final By STATUS_LOCATOR = By.xpath(".//*[contains(@data-l,'t,btn_accept')]");
+    private static final By STATUS_LOCATOR = By.xpath(".//div[contains(@class,'notif_tx')]");
 
     public NotificationFriendsCard(WebElement element) {
         this.element = element;
@@ -23,11 +23,12 @@ public class NotificationFriendsCard {
         return notificationFriendsName;
     }
 
-    public void accept(){
+    public NotificationFriendsCard accept() {
         element.findElement(BTN_ACCEPT_LOCATOR).click();
+        return this;
     }
 
-    public String getAcceptStatus(){
-        return (Utils.getInnerText(element, STATUS_LOCATOR)==" и вы теперь друзья.")?"You're friends":"";
+    public String getAcceptStatus() {
+        return Utils.getInnerText(element, STATUS_LOCATOR); //" и вы теперь друзья.") ? "You're friends" : "";
     }
 }

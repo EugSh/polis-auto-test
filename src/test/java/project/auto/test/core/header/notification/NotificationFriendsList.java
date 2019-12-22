@@ -1,10 +1,12 @@
 package project.auto.test.core.header.notification;
 
+import junit.framework.AssertionFailedError;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import project.auto.test.BasePage;
 import project.auto.test.core.Utils;
+import project.auto.test.core.searchPage.SearchedGroupCard;
 
 import java.util.List;
 
@@ -12,7 +14,7 @@ import static org.junit.Assert.assertTrue;
 
 public class NotificationFriendsList extends BasePage {
     private final List<NotificationFriendsCard> items;
-    private static final By NOTIFICATION_FRIENDS_LIST_LOCATOR = By.xpath(".//div[contains(@id, 'ntf_layer_content_inner')]");
+    private static final By NOTIFICATION_FRIENDS_LIST_LOCATOR = By.xpath(".//div[contains(@id, 'ntf_layer_content_inner')]/div");
 
     public NotificationFriendsList(WebDriver driver) {
         super(driver);
@@ -28,7 +30,11 @@ public class NotificationFriendsList extends BasePage {
     }
 
     public NotificationFriendsCard getByName(final String name){
-        return items.get(Utils.getFirstIndex(items, name, NotificationFriendsCard::getNotificationFriendsName));
+        final int index = Utils.getFirstIndex(items, name, NotificationFriendsCard::getNotificationFriendsName, Utils.getLiteComparator());
+        if (index == -1) {
+            throw new AssertionFailedError("Указанная вами группа(" + name + ") не найдена среди списка доступных." + items);
+        }
+        return items.get(index);
     }
 
 }

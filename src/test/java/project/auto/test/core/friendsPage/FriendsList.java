@@ -12,12 +12,12 @@ import static org.junit.Assert.assertTrue;
 
 public class FriendsList extends BasePage {
     private final List<FriendsCard> items;
-    private final By FRIEND_LIST_LOCATOR = By.xpath(".//ul[contains(@class, 'ugrid_cnt')]");
+    private static final By FRIEND_LIST_LOCATOR = By.xpath(".//ul[contains(@class, 'ugrid_cnt')]/li");
 
     public FriendsList(WebDriver driver) {
         super(driver);
         check();
-        items = Utils.wrapElements(e->new FriendsCard(driver, e), driver.findElements(FRIEND_LIST_LOCATOR));
+        items = Utils.wrapElements(e -> new FriendsCard(driver, e), driver.findElements(FRIEND_LIST_LOCATOR));
     }
 
     @Override
@@ -28,6 +28,6 @@ public class FriendsList extends BasePage {
     }
 
     public FriendsCard getByName(final String name) {
-        return items.get(Utils.getFirstIndex(items, name, FriendsCard::getFriendName));
+        return items.get(Utils.getFirstIndex(items, name, FriendsCard::getFriendName, Utils.getLiteComparator()));
     }
 }

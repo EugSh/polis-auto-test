@@ -12,12 +12,12 @@ import static org.junit.Assert.assertTrue;
 
 public class SubscribersList extends BasePage {
     private final List<SubscriberCard> items;
-    private final By SUBSCRIBER_LIST_LOCATOR = By.xpath(".//*[contains(@class, 'ugrid __xl __align-bottom')]/div[contains(@class, 'ugrid_cnt')]");
+    private static final By SUBSCRIBER_LIST_LOCATOR = By.xpath(".//*[contains(@class, 'ugrid __xl __align-bottom')]/div[contains(@class, 'ugrid_cnt')]/div");
 
     public SubscribersList(WebDriver driver) {
         super(driver);
         check();
-        items = Utils.wrapElements(e->new SubscriberCard(driver, e), driver.findElements(SUBSCRIBER_LIST_LOCATOR));
+        items = Utils.wrapElements(e -> new SubscriberCard(driver, e), driver.findElements(SUBSCRIBER_LIST_LOCATOR));
 
     }
 
@@ -29,7 +29,7 @@ public class SubscribersList extends BasePage {
     }
 
     public SubscriberCard getByName(final String name) {
-        return items.get(Utils.getFirstIndex(items, name, SubscriberCard::getFriendName));
+        return items.get(Utils.getFirstIndex(items, name, SubscriberCard::getFriendName, Utils.getLiteComparator()));
     }
 
 }

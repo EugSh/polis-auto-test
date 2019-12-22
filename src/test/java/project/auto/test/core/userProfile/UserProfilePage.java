@@ -42,7 +42,7 @@ public class UserProfilePage extends BasePage {
 
     public UserProfilePage clickAddFriend() {
         menuItemList.get(ActionMenuItems.AddToFriends.ordinal()).click();
-        return new UserProfilePage(driver);
+        return this;
     }
 
     private enum ActionMenuItems {

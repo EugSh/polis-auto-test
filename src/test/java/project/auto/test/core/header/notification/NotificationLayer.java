@@ -12,7 +12,7 @@ import static org.junit.Assert.assertTrue;
 
 public class NotificationLayer extends BasePage {
     private final List<NotificationItems> items;
-    private static final By LEFT_MENU_NOTIFICATION_LOCATOR = By.xpath(".//*[contains(@class, 'toolbar-layer_menu custom-scrolling usel-off')]/div[contains(@class, 'nav-side __navigation')]");
+    private static final By LEFT_MENU_NOTIFICATION_LOCATOR = By.xpath(".//*[contains(@class, 'toolbar-layer_menu custom-scrolling usel-off')]/div[contains(@class, 'nav-side __navigation')]/*");
 
     public NotificationLayer(WebDriver driver) {
         super(driver);

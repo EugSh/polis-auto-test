@@ -12,7 +12,7 @@ public class SubscriberCard extends Element {
     private final String subscriberName;
     private static final By relativeSubscriberNameLocator = By.xpath(".//a[contains(@class, 'n-t bold')]");
     private static final By USER_GRID_CARD_LOCATOR = By.className("user-grid-card_avatar");
-    private static final By CANCEL_SUBSCRIPTION_LOCATOR = By.xpath(".//span[contains(text(),'Отписаться')]");
+    private static final By CANCEL_SUBSCRIPTION_LOCATOR = By.xpath(".//li[contains(@class,'ic_subscribe-off')]");
     private static final By BUTTON_ADD_CONFIRM_LOCATOR = By.id("hook_FormButton_button_add_confirm");
 
     public SubscriberCard(WebDriver driver, WebElement element) {
@@ -31,7 +31,7 @@ public class SubscriberCard extends Element {
     public void unsubscribe() {
         Actions actions = new Actions(driver);
         actions.moveToElement(driver.findElement(USER_GRID_CARD_LOCATOR)).build().perform();
-        element.findElement(CANCEL_SUBSCRIPTION_LOCATOR).click();
-        element.findElement(BUTTON_ADD_CONFIRM_LOCATOR).click();
+        click(CANCEL_SUBSCRIPTION_LOCATOR);
+        click(BUTTON_ADD_CONFIRM_LOCATOR);
     }
 }
