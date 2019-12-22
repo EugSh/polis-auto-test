@@ -24,6 +24,6 @@ public class TwoBotsBase {
     public void stop() {
         driver1.quit();
         driver2.quit();
-        System.out.println("out");
+//        System.out.println("out");
     }
 }

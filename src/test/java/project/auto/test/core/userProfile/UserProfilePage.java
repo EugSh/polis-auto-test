@@ -40,6 +40,11 @@ public class UserProfilePage extends BasePage {
         return new PhotosLayer(driver);
     }
 
+    public UserProfilePage clickAddFriend() {
+        menuItemList.get(ActionMenuItems.AddToFriends.ordinal()).click();
+        return new UserProfilePage(driver);
+    }
+
     private enum ActionMenuItems {
         AddToFriends,
         Write,

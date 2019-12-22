@@ -15,7 +15,7 @@ public class PostFeeling extends TestBase {
     private final TestBot bot = new TestBot("TechoBot15", "TechnoPolis19");
 
 
-//    @Test
+    @Test
     public void postFeeling() {
         String actualMessage = new LoginPage(driver)
                 .doLogin(bot)
