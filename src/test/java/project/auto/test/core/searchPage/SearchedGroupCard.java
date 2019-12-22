@@ -7,9 +7,9 @@ import project.auto.test.Element;
 
 public class SearchedGroupCard extends Element {
     private final WebElement element;
-    private final By titleLocator = By.xpath(".//a[contains(@data-l, 'NAME')]");
-    private final By joinBtnLocator = By.xpath(".//span[contains(@class, 'button-pro')]");
-    private final By joinStatusLocator = By.xpath(".//div[contains(@class, 'join-group-result')]");
+    private static final By titleLocator = By.xpath(".//a[contains(@data-l, 'NAME')]");
+    private static final By joinBtnLocator = By.xpath(".//span[contains(@class, 'button-pro')]");
+    private static final By joinStatusLocator = By.xpath(".//div[contains(@class, 'join-group-result')]");
     private final String title;
 
     public SearchedGroupCard(WebDriver driver, WebElement element) {

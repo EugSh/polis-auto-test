@@ -11,7 +11,7 @@ import java.util.List;
 import static org.junit.Assert.assertTrue;
 
 public class PhotosLayer extends BasePage {
-    private final By photosWidgetItemsLocator = By.xpath(".//*[contains(@data-l, 't,actions')]/li");
+    private static final By photosWidgetItemsLocator = By.xpath(".//*[contains(@data-l, 't,actions')]/li");
     private final List<PhotosWidgetItem> widgetItems;
 
     public PhotosLayer(WebDriver driver) {

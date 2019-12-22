@@ -6,18 +6,17 @@ import org.junit.Test;
 import project.auto.test.BasePage;
 import project.auto.test.core.homePage.HomePage;
 import project.auto.test.core.loginPage.LoginPage;
-import project.auto.test.core.settingPage.SettingPage;
 import project.auto.test.model.TestBot;
 
 import static org.junit.Assert.assertEquals;
 
 public class ChangeLanguageToEng extends TestBase {
+    private static final String newLang = "English";
     private HomePage homePage;
     private String defaultLang;
-    private String newLang = "English";
     private TestBot bot = new TestBot("TechoBot15", "TechnoPolis19");
 
-    @Before
+//    @Before
     public void login() {
         defaultLang = new LoginPage(driver)
                 .doLogin(bot)
@@ -30,7 +29,7 @@ public class ChangeLanguageToEng extends TestBase {
         homePage = BasePage.goToHomePage(driver);
     }
 
-    @Test
+//    @Test
     public void changeLanguage() {
         final String language = homePage.header()
                 .clickDropDownToolBar()
@@ -44,7 +43,7 @@ public class ChangeLanguageToEng extends TestBase {
         assertEquals(newLang, language);
     }
 
-    @After
+//    @After
     public void setDefaultLang() {
         homePage = BasePage.goToHomePage(driver);
         homePage.header()

@@ -12,8 +12,8 @@ import java.util.List;
 import static org.junit.Assert.assertTrue;
 
 public class UserProfilePage extends BasePage {
-    private final By avatarLocator = By.xpath(".//*[contains(@class, 'entity-avatar')]");
-    private final By actionMenuItemsLocator = By.xpath(".//*[contains(@class, 'header-action-menu')]/li");
+    private static final By avatarLocator = By.xpath(".//*[contains(@class, 'entity-avatar')]");
+    private static final By actionMenuItemsLocator = By.xpath(".//*[contains(@class, 'header-action-menu')]/li");
     private final List<ProfileActionMenuItem> menuItemList;
 
     public UserProfilePage(WebDriver driver) {

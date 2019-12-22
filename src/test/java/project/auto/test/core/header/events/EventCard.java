@@ -8,7 +8,7 @@ import project.auto.test.core.Utils;
 public class EventCard {
     private final WebElement element;
     private final String senderNameSurName;
-    private final By senderLocator = By.xpath(".//a[contains(@data-l, 't,uL')]");
+    private static final By senderLocator = By.xpath(".//a[contains(@data-l, 't,uL')]");
 
     /**
      * Карточка события.

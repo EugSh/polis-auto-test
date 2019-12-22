@@ -11,7 +11,7 @@ import java.util.List;
 import static org.junit.Assert.assertTrue;
 
 public class EventsLayer extends BasePage {
-    private final By eventCardLocator = By.xpath(".//*[contains(@data-l, 't,item')]");
+    private static final By eventCardLocator = By.xpath(".//*[contains(@data-l, 't,item')]");
     private final List<EventCard> cards;
 
     /**

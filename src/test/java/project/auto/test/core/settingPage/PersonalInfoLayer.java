@@ -7,9 +7,9 @@ import org.slf4j.LoggerFactory;
 import project.auto.test.BasePage;
 
 public class PersonalInfoLayer extends BasePage {
-    private final By inputNameLocator = By.name("fr.name");
-    private final By saveBtnLocator = By.xpath("//*[contains(@data-l,'t,confirm')]");
-    private final By closeBtnLocator = By.id("buttonId_button_close");
+    private static final By inputNameLocator = By.name("fr.name");
+    private static final By saveBtnLocator = By.xpath("//*[contains(@data-l,'t,confirm')]");
+    private static final By closeBtnLocator = By.id("buttonId_button_close");
 
     /**
      * Объект представляет собой слой, на котором можно изменить персональную информацию о пользователе:

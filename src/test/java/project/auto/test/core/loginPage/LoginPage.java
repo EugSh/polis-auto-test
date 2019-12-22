@@ -26,19 +26,9 @@ public class LoginPage extends BasePage {
 
     @Override
     protected void check() {
-//        System.out.println(isElementPresent(signInButton));
         assertTrue(isElementPresent(signInButton));
         assertTrue(isElementPresent(loginField));
         assertTrue(isElementPresent(passwordField));
-//        assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(loginField),
-//                maxCheckTime,
-//                msBetweenCheck));
-//        assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.name("st.password")),
-//                maxCheckTime,
-//                msBetweenCheck));
-//        assertTrue(explicitWait(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[contains(@data-l,'t,sign_in')]")),
-//                maxCheckTime,
-//                msBetweenCheck));
     }
 
     public HomePage doLogin(final TestBot bot) {

@@ -19,6 +19,7 @@ import static org.junit.Assert.assertTrue;
 public class Header extends BasePage {
     private static final By dropDownToolBarLocator = By.className("toolbar_dropdown_w");
     private static final By toolBarItemsLocator = By.xpath((".//*[contains(@class,'toolbar_nav')]//li"));
+    private static final By lupaLocator = By.id("lsBtn");
     private final List<ToolBarItem> toolBarItems;
 
     /**
@@ -54,6 +55,7 @@ public class Header extends BasePage {
 
     public SearchPage clickLupa() {
         //TODO : добавить параметры конструктора, когда будут реализован соответствующий класс
+        click(lupaLocator);
         return new SearchPage(driver);
     }
 

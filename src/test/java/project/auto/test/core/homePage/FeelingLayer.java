@@ -13,9 +13,9 @@ import java.util.List;
 import static org.junit.Assert.assertTrue;
 
 public class FeelingLayer extends BasePage {
-    private final By feelingCardsLocator = By.xpath(".//*[contains(@class,'feeling-layer_list_i')]");
-    private final By textAreaLocator = By.name("st.layer.fieldFeelingText");
-    private final By btnPost = By.xpath((".//*[contains(@class,'feeling-layer_form')]//*[contains(@class,'button-pro')]"));
+    private static final By feelingCardsLocator = By.xpath(".//*[contains(@class,'feeling-layer_list_i')]");
+    private static final By textAreaLocator = By.name("st.layer.fieldFeelingText");
+    private static final By btnPost = By.xpath((".//*[contains(@class,'feeling-layer_form')]//*[contains(@class,'button-pro')]"));
     private final List<FeelingCard> feelingCards;
 
     /**

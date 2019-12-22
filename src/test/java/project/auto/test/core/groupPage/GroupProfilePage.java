@@ -5,8 +5,8 @@ import org.openqa.selenium.WebDriver;
 import project.auto.test.BasePage;
 
 public class GroupProfilePage extends BasePage {
-    private final By participantBtnLocator = By.xpath(".//*[contains(@data-l,'t,join')]/div");
-    private final By leaveGroupBtnLocator = By.xpath(".//*[contains(@data-l,'t,join')]//a[contains(@class, 'dropdown_i')]");
+    private static final By participantBtnLocator = By.xpath(".//*[contains(@data-l,'t,join')]/div");
+    private static final By leaveGroupBtnLocator = By.xpath(".//*[contains(@data-l,'t,join')]//a[contains(@class, 'dropdown_i')]");
 
     /**
      * Страница профиля группы.

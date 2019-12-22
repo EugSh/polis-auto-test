@@ -8,7 +8,7 @@ import project.auto.test.core.Utils;
 
 public class GroupCard extends Element {
     private final WebElement element;
-    private final By relativeTitleLocator = By.xpath(".//a[contains(@data-l, 't,visit')]");
+    private static final By relativeTitleLocator = By.xpath(".//a[contains(@data-l, 't,visit')]/div");
     private final String title;
 
     /**

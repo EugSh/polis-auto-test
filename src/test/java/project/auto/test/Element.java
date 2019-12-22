@@ -47,7 +47,6 @@ public class Element {
     protected void click(SearchContext context, By locator) {
         if (isElementVisible(locator)) {
             context.findElement(locator).click();
-            System.out.println("click "+locator);
             return;
         }
         throw new AssertionFailedError("Элемент (" + locator + "), на который вы пытаетесь нажать, не виден.");

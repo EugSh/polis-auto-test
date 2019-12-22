@@ -13,7 +13,7 @@ import java.util.List;
 import static org.junit.Assert.assertTrue;
 
 public class GroupsList extends BasePage {
-    private final By groupCardLocator = By.xpath(".//*[contains(@id,'listBlockPanelDetailedUserGroupsListBlock')]//div[contains(@class,'ugrid_i')]");
+    private static final By groupCardLocator = By.xpath(".//*[contains(@id,'listBlockPanelDetailedUserGroupsListBlock')]//div[contains(@class,'ugrid_i')]");
     private final List<GroupCard> cards;
 
     /**
@@ -43,6 +43,7 @@ public class GroupsList extends BasePage {
      */
     public GroupCard getByName(final String title) {
         final int index = Utils.getFirstIndex(cards, title, GroupCard::getTitle, Utils.getLiteComparator());
+        System.out.println(cards);
         if (index == -1) {
             throw new AssertionFailedError("Указанная вами группа (" + title + ") не найденна среди групп пользователя.");
         }

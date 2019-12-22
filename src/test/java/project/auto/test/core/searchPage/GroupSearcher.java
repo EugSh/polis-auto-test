@@ -12,9 +12,9 @@ import java.util.List;
 import static org.junit.Assert.assertTrue;
 
 public class GroupSearcher extends BasePage {
-    private final By groupCardsLocator = By.xpath(".//*[contains(@class, 'gs_result_group-card')]");
-    private final By inputQueryLocator = By.name("st.query");
-    private final By searchFromLocator = By.xpath(".//*[contains(@class, 'search-wrapper-form')]//div[contains(@class, 'it_w')]");
+    private static final By groupCardsLocator = By.xpath(".//*[contains(@class, 'gs_result_group-card')]");
+    private static final By inputQueryLocator = By.name("st.query");
+    private static final By searchFromLocator = By.xpath(".//*[contains(@class, 'search-wrapper-form')]//div[contains(@class, 'it_w')]");
     private final List<SearchedGroupCard> cards;
 
     /**
@@ -38,7 +38,9 @@ public class GroupSearcher extends BasePage {
 
     public GroupSearcher search(final String query) {
         type(query, inputQueryLocator);
-        final boolean searchingResult = explicitWait(ExpectedConditions.attributeContains(searchFromLocator, "class", "search-input_searching"),
+        final boolean searchingResult = explicitWait(ExpectedConditions
+                        .not(ExpectedConditions
+                                .attributeContains(searchFromLocator, "class", "search-input_searching")),
                 maxCheckTime,
                 msBetweenCheck);
         if (searchingResult) {
