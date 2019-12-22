@@ -8,8 +8,8 @@ public class FeelingCard {
     private final WebElement element;
     private final String title;
     private final String alias;
-    private static final By relativeTitleLocator = By.xpath("//div[contains(@class, 'feeling-card_tx')]");
-    private static final By relativeAliasLocator = By.xpath("/div");
+    private static final By relativeTitleLocator = By.xpath(".//div[contains(@class, 'feeling-card_tx')]");
+    private static final By relativeAliasLocator = By.xpath("./div");
 
     /**
      * Карточка настроения.
