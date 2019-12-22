@@ -28,7 +28,7 @@ public class DeleteFriendTest extends TwoBotsBase {
         assertTrue(header2.checkNotifications().agree());
     }
 
-    @Test
+//    @Test
     public void deleteFriend() {
         header1 = new Header(driver1);
         header1.delete().deleteFriend();

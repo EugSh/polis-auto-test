@@ -41,10 +41,6 @@ public class Utils {
         return element.findElement(locator).getAttribute(attributeName);
     }
 
-    public static void click(final SearchContext element, final By locator){
-
-    }
-
     /**
      * Метод, чтобы в коллекции элементов elements класса Т найти индекци первого вхождения key класса R.
      * Поумолчанию сравнивает строки целиком.

@@ -10,12 +10,17 @@ import static org.junit.Assert.assertNotNull;
 
 
 public class HPMiddleContent extends BasePage {
-    private final By postFeelingBtnLocator = By.xpath(".//*[contains(@data-l,'t,pf_feeling_button')]");
-    private final By feelingRecordLocator = By.id("hook_Block_MainFeedsNewFeed");
-    private final By relativeFeelingStatusLocator = By.xpath(".//div[contains(@class, 'feeling-portlet_t __feed')]");
-    private final By relativeFeelingMessageLocator = By.xpath(".//div[contains(@class, 'feeling-portlet_desc')]");
+    private static final By postFeelingBtnLocator = By.xpath(".//*[contains(@data-l,'t,pf_feeling_button')]");
+    private static final By feelingRecordLocator = By.id("hook_Block_MainFeedsNewFeed");
+    private static final By relativeFeelingStatusLocator = By.xpath(".//div[contains(@class, 'feeling-portlet_t __feed')]");
+    private static final By relativeFeelingMessageLocator = By.xpath(".//div[contains(@class, 'feeling-portlet_desc')]");
     private WebElement feelingRecord;
 
+    /**
+     * Центральная колонка с контентов.
+     *
+     * @param driver {@link WebDriver}
+     */
     public HPMiddleContent(WebDriver driver) {
         super(driver);
         feelingRecord = isElementVisible(feelingRecordLocator) ? driver.findElement(feelingRecordLocator) : null;

@@ -16,6 +16,11 @@ public class GroupsList extends BasePage {
     private final By groupCardLocator = By.xpath(".//*[contains(@id,'listBlockPanelDetailedUserGroupsListBlock')]//div[contains(@class,'ugrid_i')]");
     private final List<GroupCard> cards;
 
+    /**
+     * Блок, который содержит список всех групп, в которых состоит пользователь.
+     *
+     * @param driver {@link WebDriver}
+     */
     public GroupsList(WebDriver driver) {
         super(driver);
         check();
@@ -30,10 +35,16 @@ public class GroupsList extends BasePage {
                 msBetweenCheck));
     }
 
-    public GroupCard getByName(final String name) {
-        final int index = Utils.getFirstIndex(cards, name, GroupCard::getTitle, Utils.getLiteComparator());
+    /**
+     * Метод, который возвращает первую совпавшую по заголовку карточку группы.
+     *
+     * @param title {@link String}
+     * @return {@link GroupCard} объект-карточка группы
+     */
+    public GroupCard getByName(final String title) {
+        final int index = Utils.getFirstIndex(cards, title, GroupCard::getTitle, Utils.getLiteComparator());
         if (index == -1) {
-            throw new AssertionFailedError("Указанная вами группа (" + name + ") не найденна среди групп пользователя.");
+            throw new AssertionFailedError("Указанная вами группа (" + title + ") не найденна среди групп пользователя.");
         }
         return cards.get(index);
     }

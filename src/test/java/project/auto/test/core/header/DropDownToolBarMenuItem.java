@@ -19,4 +19,11 @@ public class DropDownToolBarMenuItem {
     public void click() {
         element.click();
     }
+
+    @Override
+    public String toString() {
+        return "DropDownToolBarMenuItem{" +
+                "element=" + element +
+                '}';
+    }
 }

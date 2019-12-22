@@ -3,6 +3,7 @@ package project.auto.test.core.homePage;
 import junit.framework.AssertionFailedError;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import project.auto.test.BasePage;
 import project.auto.test.core.Utils;
@@ -17,6 +18,11 @@ public class FeelingLayer extends BasePage {
     private final By btnPost = By.xpath((".//*[contains(@class,'feeling-layer_form')]//*[contains(@class,'button-pro')]"));
     private final List<FeelingCard> feelingCards;
 
+    /**
+     * Слой для публикации настроения, на котором представлен список возможных настроений и поле ввода текста поста.
+     *
+     * @param driver {@link WebDriver}
+     */
     public FeelingLayer(WebDriver driver) {
         super(driver);
         check();

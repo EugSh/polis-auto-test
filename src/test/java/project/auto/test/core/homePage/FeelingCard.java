@@ -11,6 +11,11 @@ public class FeelingCard {
     private final By relativeTitleLocator = By.xpath("//div[contains(@class, 'feeling-card_tx')]");
     private final By relativeAliasLocator = By.xpath("/div");
 
+    /**
+     * Карточка настроения.
+     *
+     * @param element {@link WebElement}
+     */
     public FeelingCard(WebElement element) {
         this.element = element;
         this.title = Utils.getInnerText(element, relativeTitleLocator);

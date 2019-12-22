@@ -8,14 +8,13 @@ public class GroupProfilePage extends BasePage {
     private final By participantBtnLocator = By.xpath(".//*[contains(@data-l,'t,join')]/div");
     private final By leaveGroupBtnLocator = By.xpath(".//*[contains(@data-l,'t,join')]//a[contains(@class, 'dropdown_i')]");
 
+    /**
+     * Страница профиля группы.
+     *
+     * @param driver {@link WebDriver}
+     */
     public GroupProfilePage(WebDriver driver) {
         super(driver);
-    }
-
-    public GroupProfilePage exitFromGroup() {
-        click(participantBtnLocator);
-        click(leaveGroupBtnLocator);
-        throw new UnsupportedOperationException();
     }
 
     public GroupProfilePage clickParticipant() {

@@ -13,9 +13,9 @@ import java.util.List;
 import static org.junit.Assert.assertTrue;
 
 public class DropDownToolBar extends BasePage {
-    private final By logoutLocator = By.xpath(".//*[contains(@data-l,'t,logoutCurrentUser')]");
-    private final By toolBarItems = By.xpath(".//*[contains(@data-l,'newbieCContainer,user_toolbar')]//li");
-    private final By uCardMini = By.className("ucard-mini_cnt_i");
+    private static final By logoutLocator = By.xpath(".//*[contains(@data-l,'t,logoutCurrentUser')]");
+    private static final By toolBarItems = By.xpath(".//*[contains(@data-l,'newbieCContainer,user_toolbar')]//li");
+    private static final By uCardMini = By.className("ucard-mini_cnt_i");
     private final List<DropDownToolBarMenuItem> items;
 
     /**
@@ -65,6 +65,13 @@ public class DropDownToolBar extends BasePage {
      * @return {@link SettingPage}
      */
     public SettingPage clickSetting() {
+//        System.out.println(items);
+//        System.out.println( items.get(3));
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         items.get(3).click();
         return new SettingPage(driver);
     }

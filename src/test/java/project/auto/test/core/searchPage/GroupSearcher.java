@@ -13,8 +13,15 @@ import static org.junit.Assert.assertTrue;
 
 public class GroupSearcher extends BasePage {
     private final By groupCardsLocator = By.xpath(".//*[contains(@class, 'gs_result_group-card')]");
+    private final By inputQueryLocator = By.name("st.query");
+    private final By searchFromLocator = By.xpath(".//*[contains(@class, 'search-wrapper-form')]//div[contains(@class, 'it_w')]");
     private final List<SearchedGroupCard> cards;
 
+    /**
+     * Раздел группы на странице поиска {@link SearchPage}.
+     *
+     * @param driver {@link WebDriver}
+     */
     public GroupSearcher(WebDriver driver) {
         super(driver);
         check();
@@ -29,9 +36,15 @@ public class GroupSearcher extends BasePage {
 
     }
 
-    public GroupSearcher search(final String str) {
-
-        throw new UnsupportedOperationException();
+    public GroupSearcher search(final String query) {
+        type(query, inputQueryLocator);
+        final boolean searchingResult = explicitWait(ExpectedConditions.attributeContains(searchFromLocator, "class", "search-input_searching"),
+                maxCheckTime,
+                msBetweenCheck);
+        if (searchingResult) {
+            return new GroupSearcher(driver);
+        }
+        throw new AssertionFailedError("Поиск групп по запросу(" + query + ") длился дольше чем " + maxCheckTime + " секунд");
     }
 
     public SearchedGroupCard getCardByName(final String groupName) {

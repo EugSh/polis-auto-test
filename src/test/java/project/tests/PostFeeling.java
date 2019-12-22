@@ -23,7 +23,7 @@ public class PostFeeling extends TestBase {
         middleColumn = new MiddleColumn(driver);
     }
 
-    @Test
+//    @Test
     public void postFeelingAndCheckIt(){
         middleColumn.postFeeling().chooseFeelingAndPost(feelingAlias, feelingMessage);
         middleColumn.refresh();

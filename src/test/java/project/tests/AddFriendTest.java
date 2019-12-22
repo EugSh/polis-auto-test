@@ -23,7 +23,7 @@ public class AddFriendTest extends TwoBotsBase {
         loginPage2.doLogin(testBot2);
     }
 
-    @Test
+//    @Test
     public void addFriend() {
         header1 = new Header(driver1);
         header1.doSearch("TechoBot15").addFriend();

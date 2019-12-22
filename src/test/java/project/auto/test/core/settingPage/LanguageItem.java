@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import project.auto.test.core.Utils;
 
 public class LanguageItem {
-    private final By relativeLangNameLocator = By.xpath("/.");
+    private static final By relativeLangNameLocator = By.xpath(".");
     private final WebElement element;
     private final String langName;
 

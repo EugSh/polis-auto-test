@@ -13,9 +13,14 @@ import java.util.List;
 import static org.junit.Assert.assertTrue;
 
 public class HPLeftContent extends BasePage {
-    private final By navigationBarLocator = By.xpath(".//*[contains(@data-l,'t,navigation')]/div[contains(@class, 'nav-side')]/*");
+    private static final By navigationBarLocator = By.xpath(".//*[contains(@data-l,'t,navigation')]/div[contains(@class, 'nav-side')]/*");
     private final List<ToolBarItem> toolBarItems;
 
+    /**
+     * Левая колонка с контекнтом.
+     *
+     * @param driver {@link WebDriver}
+     */
     public HPLeftContent(WebDriver driver) {
         super(driver);
         check();

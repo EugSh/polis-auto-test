@@ -22,7 +22,7 @@ public class GuestTest extends TwoBotsBase {
         loginPage2.doLogin(testBot2);
     }
 
-    @Test
+//    @Test
     public void watchProfile() throws InterruptedException {
         header1 = new Header(driver1);
         header1.doSearch(testBot2.getLogin()).goToProfile();

@@ -14,16 +14,17 @@ public class Element {
     protected WebDriver driver;
     private boolean acceptNextAlert = true;
     protected final int maxCheckTime = 10;
-    protected final int msBetweenCheck = 1000;
+    protected final int msBetweenCheck = 200;
 
     public Element(WebDriver driver) {
         this.driver = driver;
     }
 
     protected void type(String text, By locator) {
-        if (isElementVisible(locator)) {
+        if (isElementPresent(locator)) {
             driver.findElement(locator).clear();
             driver.findElement(locator).sendKeys(text);
+            return;
         }
         throw new AssertionFailedError("Элемент(" + locator + "), в который вы пытаетесь ввести текст(" + text + "), не виден.");
     }
@@ -46,6 +47,7 @@ public class Element {
     protected void click(SearchContext context, By locator) {
         if (isElementVisible(locator)) {
             context.findElement(locator).click();
+            System.out.println("click "+locator);
             return;
         }
         throw new AssertionFailedError("Элемент (" + locator + "), на который вы пытаетесь нажать, не виден.");

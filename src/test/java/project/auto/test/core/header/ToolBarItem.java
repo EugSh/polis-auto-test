@@ -6,6 +6,8 @@ public class ToolBarItem {
     private final WebElement element;
 
     /**
+     * Элемент верхней панели.
+     * Сообщения, Обсуждения, Оповещения, Друзья, Гости, События, Видео, Музыка.
      *
      * @param element {@link WebElement}
      */
@@ -13,7 +15,7 @@ public class ToolBarItem {
         this.element = element;
     }
 
-    public void click(){
+    public void click() {
         element.click();
     }
 }

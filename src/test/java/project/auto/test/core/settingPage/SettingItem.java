@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import project.auto.test.core.Utils;
 
 public class SettingItem {
-    private final By relativeInnerTextLocator = By.xpath("/div[contains(@class,'user-settings_i_n')]");
+    private static final By relativeInnerTextLocator = By.xpath("./div[contains(@class,'user-settings_i_n')]");
     private final WebElement element;
     private final String title;
 

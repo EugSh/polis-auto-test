@@ -29,7 +29,7 @@ public class LikePhoto extends TwoBotsBase {
         friends1 = header1.doSearch(bot2.getLogin()).goToProfile();
     }
 
-    @Test
+//    @Test
     public void klassPhotoAndCheckEvent() {
         friends1.klassPhoto();
         assertTrue(header2.checkEvent().isSetKlass());

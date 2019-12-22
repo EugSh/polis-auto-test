@@ -17,8 +17,8 @@ import java.util.List;
 import static org.junit.Assert.assertTrue;
 
 public class Header extends BasePage {
-    private final By dropDownToolBarLocator = By.className("toolbar_dropdown_w");
-    private final By toolBarItemsLocator = By.xpath((".//*[contains(@class,'toolbar_nav')]//li"));
+    private static final By dropDownToolBarLocator = By.className("toolbar_dropdown_w");
+    private static final By toolBarItemsLocator = By.xpath((".//*[contains(@class,'toolbar_nav')]//li"));
     private final List<ToolBarItem> toolBarItems;
 
     /**

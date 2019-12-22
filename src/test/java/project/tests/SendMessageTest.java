@@ -21,7 +21,7 @@ public class SendMessageTest extends TwoBotsBase {
         loginPage2.doLogin(testBot2);
     }
 
-    @Test
+//    @Test
     public void sendAndReceiveMessage() {
         header1 = new Header(driver1);
         header1.doSearch(testBot2.getLogin()).goToProfile().sendMessage();

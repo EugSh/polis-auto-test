@@ -14,6 +14,11 @@ public class EventsLayer extends BasePage {
     private final By eventCardLocator = By.xpath(".//*[contains(@data-l, 't,item')]");
     private final List<EventCard> cards;
 
+    /**
+     * Слой, в котором представлен список событий {@link EventCard}
+     *
+     * @param driver {@link WebDriver}
+     */
     public EventsLayer(WebDriver driver) {
         super(driver);
         check();
