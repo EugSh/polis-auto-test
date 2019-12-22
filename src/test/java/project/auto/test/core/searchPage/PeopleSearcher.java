@@ -36,7 +36,7 @@ public class PeopleSearcher extends BasePage {
         if (index == -1) {
             throw new AssertionFailedError("Указанный вами человек(" + name + ") не был найден среди списка доступных." + cards);
         }
-        cards = Utils.wrapElements(SearchedPeopleCard::new, driver.findElements(PEOPLE_CARDS_LOCATOR));
+        cards = Utils.wrapElements(e->new SearchedPeopleCard(driver, e), driver.findElements(PEOPLE_CARDS_LOCATOR));
         return this;
     }
 
