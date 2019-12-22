@@ -4,9 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import project.auto.test.Element;
 import project.auto.test.core.Utils;
 
-public class SubscriberCard {
+public class SubscriberCard extends Element {
     private final WebElement element;
     private final String subscriberName;
     private static final By relativeSubscriberNameLocator = By.xpath(".//a[contains(@class, 'n-t bold')]");
@@ -14,7 +15,8 @@ public class SubscriberCard {
     private static final By CANCEL_SUBSCRIPTION_LOCATOR = By.xpath(".//span[contains(text(),'Отписаться')]");
     private static final By BUTTON_ADD_CONFIRM_LOCATOR = By.id("hook_FormButton_button_add_confirm");
 
-    public SubscriberCard(WebElement element) {
+    public SubscriberCard(WebDriver driver, WebElement element) {
+        super(driver);
         this.element = element;
         this.subscriberName = Utils.getInnerText(element, relativeSubscriberNameLocator);
     }
@@ -26,7 +28,7 @@ public class SubscriberCard {
         return subscriberName;
     }
 
-    public void unsubscribe(final WebDriver driver) {
+    public void unsubscribe() {
         Actions actions = new Actions(driver);
         actions.moveToElement(driver.findElement(USER_GRID_CARD_LOCATOR)).build().perform();
         element.findElement(CANCEL_SUBSCRIPTION_LOCATOR).click();

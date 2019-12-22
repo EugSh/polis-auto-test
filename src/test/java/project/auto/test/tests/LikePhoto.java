@@ -22,7 +22,7 @@ public class LikePhoto extends TwoBotsBase {
                 .doLogin(bot2);
     }
 
-    @Test
+    //@Test
     public void likeUserAvatar() {
         homeBot2.header()
                 .clickLupa()

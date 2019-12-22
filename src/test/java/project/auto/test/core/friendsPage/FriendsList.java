@@ -17,7 +17,7 @@ public class FriendsList extends BasePage {
     public FriendsList(WebDriver driver) {
         super(driver);
         check();
-        items = Utils.wrapElements(FriendsCard::new, driver.findElements(FRIEND_LIST_LOCATOR));
+        items = Utils.wrapElements(e->new FriendsCard(driver, e), driver.findElements(FRIEND_LIST_LOCATOR));
     }
 
     @Override

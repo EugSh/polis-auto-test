@@ -16,7 +16,7 @@ public class ChangeLanguageToEng extends TestBase {
     private String defaultLang;
     private TestBot bot = new TestBot("TechoBot15", "TechnoPolis19");
 
-//    @Before
+    @Before
     public void login() {
         defaultLang = new LoginPage(driver)
                 .doLogin(bot)
@@ -29,7 +29,7 @@ public class ChangeLanguageToEng extends TestBase {
         homePage = BasePage.goToHomePage(driver);
     }
 
-//    @Test
+    //@Test
     public void changeLanguage() {
         final String language = homePage.header()
                 .clickDropDownToolBar()
@@ -43,7 +43,7 @@ public class ChangeLanguageToEng extends TestBase {
         assertEquals(newLang, language);
     }
 
-//    @After
+    @After
     public void setDefaultLang() {
         homePage = BasePage.goToHomePage(driver);
         homePage.header()

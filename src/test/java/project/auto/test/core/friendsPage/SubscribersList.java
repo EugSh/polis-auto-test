@@ -17,7 +17,7 @@ public class SubscribersList extends BasePage {
     public SubscribersList(WebDriver driver) {
         super(driver);
         check();
-        items = Utils.wrapElements(SubscriberCard::new, driver.findElements(SUBSCRIBER_LIST_LOCATOR));
+        items = Utils.wrapElements(e->new SubscriberCard(driver, e), driver.findElements(SUBSCRIBER_LIST_LOCATOR));
 
     }
 
