@@ -32,7 +32,7 @@ public class UserProfilePage extends BasePage {
 
     public MessageLayer clickWriteMessage() {
         menuItemList.get(ActionMenuItems.Write.ordinal()).click();
-        return new MessageLayer();
+        return new MessageLayer(driver);
     }
 
     public PhotosLayer clickAvatar() {

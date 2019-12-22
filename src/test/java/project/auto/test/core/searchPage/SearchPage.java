@@ -28,7 +28,8 @@ public class SearchPage extends BasePage {
     }
 
     public PeopleSearcher clickPeople() {
-        throw new UnsupportedOperationException();
+        categoryList.get(Category.People.ordinal()).click();
+        return new PeopleSearcher(driver);
     }
 
     public GroupSearcher clickGroup() {

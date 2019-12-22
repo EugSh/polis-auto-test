@@ -3,7 +3,7 @@ package project.auto.test.core.friendsPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import project.core.BasePage;
+import project.auto.test.BasePage;
 
 import static org.junit.Assert.assertTrue;
 

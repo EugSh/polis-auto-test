@@ -1,7 +1,7 @@
 package project.auto.test.core.guestPage;
 
 import org.openqa.selenium.WebDriver;
-import project.core.BasePage;
+import project.auto.test.BasePage;
 
 public class GuestsPage extends BasePage {
 

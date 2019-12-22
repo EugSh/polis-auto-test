@@ -1,5 +1,7 @@
 package project.auto.test.core.searchPage;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import project.auto.test.core.Utils;
 import project.auto.test.core.userProfile.UserProfilePage;
@@ -7,10 +9,12 @@ import project.auto.test.core.userProfile.UserProfilePage;
 public class SearchedPeopleCard{
     private final WebElement element;
     private final String searchPeopleCardName;
+    private static final By NAME_SEARCH_PEOPLE_CARD_LOCATOR = By.xpath(".//a[contains(@class, 'gs_result_i_t_name o')]");
+    private static final By ADD_FRIEND_LOCATOR = By.xpath("//span[contains(text(), 'Добавить в друзья')]");
 
     public SearchedPeopleCard(WebElement element) {
         this.element = element;
-        this.searchPeopleCardName = Utils.getInnerText(element, relativeNotificationFriendsNameNameLocator);
+        this.searchPeopleCardName = Utils.getInnerText(element, NAME_SEARCH_PEOPLE_CARD_LOCATOR);
     }
 
     /**
@@ -21,10 +25,11 @@ public class SearchedPeopleCard{
     }
 
     public void clickAddFriend(){
-        throw new UnsupportedOperationException();
+        element.findElement(ADD_FRIEND_LOCATOR).click();
     }
 
-    public UserProfilePage clickProfile(){
-        throw new UnsupportedOperationException();
+    public UserProfilePage clickProfile(WebDriver driver){
+        element.findElement(NAME_SEARCH_PEOPLE_CARD_LOCATOR).click();
+        return new UserProfilePage(driver);
     }
 }
