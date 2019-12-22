@@ -27,7 +27,7 @@ public class SearchedPeopleCard extends Element {
     }
 
     public void clickAddFriend(){
-        element.findElement(ADD_FRIEND_LOCATOR).click();
+        click(ADD_FRIEND_LOCATOR);
     }
 
     public UserProfilePage clickProfile(){
