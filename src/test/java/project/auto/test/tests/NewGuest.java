@@ -6,11 +6,14 @@ import project.auto.test.core.homePage.HomePage;
 import project.auto.test.core.loginPage.LoginPage;
 import project.auto.test.model.TestBot;
 
+import static org.junit.Assert.assertEquals;
+
 public class NewGuest extends TwoBotsBase{
     private HomePage homePage1;
     private HomePage homePage2;
     private final TestBot bot1 = new TestBot("TechoBot7", "TechnoPolis19");
     private final TestBot bot2 = new TestBot("TechoBot15", "TechnoPolis19");
+    private final String fullnameBot1 = "TechoBot7 TechoBot7";
 
     @Before
     public void login() {
@@ -28,9 +31,11 @@ public class NewGuest extends TwoBotsBase{
                 .search(bot2.getLogin())
                 .getCardByName(bot2.getLogin())
                 .clickProfile();
-        homePage2.header()
+        String currentGuest = homePage2.header()
                 .clickGuest()
                 .getGuestList()
-                .getByName(bot1.getLogin());
+                .getByName(fullnameBot1)
+                .getGuestName();
+        assertEquals(currentGuest, fullnameBot1);
     }
 }

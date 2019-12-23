@@ -14,12 +14,12 @@ import static org.junit.Assert.assertTrue;
 
 public class MessageLayer extends BasePage {
     private final List<DialogItem> items;
-    private static final By LEFT_MENU_MESSAGE_LOCATOR = By.xpath(".//div[contains(@data-l, 't,listItems')]");
+    private static final By LEFT_MENU_MESSAGE_LOCATOR = By.xpath(".//div[contains(@class, 'chats custom-scrolling h-mod')]//div[contains(@class, 'chats_i h-mod')]");
 
     public MessageLayer(WebDriver driver) {
         super(driver);
         check();
-        items = Utils.wrapElements(DialogItem::new, driver.findElements(LEFT_MENU_MESSAGE_LOCATOR));
+        items = Utils.wrapElements(e -> new DialogItem(driver, e), driver.findElements(LEFT_MENU_MESSAGE_LOCATOR));
     }
 
     @Override
@@ -29,8 +29,8 @@ public class MessageLayer extends BasePage {
                 msBetweenCheck));
     }
 
-    public DialogItem clickByName(String name) {
-        final int index = Utils.getFirstIndex(items, name, DialogItem::getDialogName);
+    public MessageForm clickByName(String name) {
+        final int index = Utils.getFirstIndex(items, name, DialogItem::getDialogName, Utils.getLiteComparator());
         if (index == -1) {
             throw new AssertionFailedError("Указанное вами имя (" + name + ") не найдено среди диалогов пользователя.");
         }

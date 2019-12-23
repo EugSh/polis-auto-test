@@ -1,7 +1,9 @@
 package project.auto.test.tests;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import project.auto.test.BasePage;
 import project.auto.test.core.homePage.HomePage;
 import project.auto.test.core.loginPage.LoginPage;
 import project.auto.test.model.TestBot;
@@ -23,15 +25,18 @@ public class DeleteFriend extends TwoBotsBase {
                 .clickPeople()
                 .search(bot2.getLogin())
                 .getCardByName(bot2.getLogin())
+                .clickProfile()
                 .clickAddFriend();
         homePage2.header()
                 .clickNotification()
                 .clickFriendship()
                 .getByName(bot1.getLogin())
                 .accept();
+        homePage1 = BasePage.goToHomePage(driver1);
+        homePage2 = BasePage.goToHomePage(driver2);
     }
 
-    //@Test
+    @Test(expected = AssertionError.class)
     public void deleteFriend() {
         homePage1.header()
                 .clickFriends()
@@ -43,5 +48,11 @@ public class DeleteFriend extends TwoBotsBase {
                 .clickSubscriber()
                 .getByName(bot1.getLogin())
                 .unsubscribe();
+
+        BasePage.goToHomePage(driver1)
+                .header()
+                .clickFriends()
+                .getFriendList()
+                .getByName(bot2.getLogin());
     }
 }

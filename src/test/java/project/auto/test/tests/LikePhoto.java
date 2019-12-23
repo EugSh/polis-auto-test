@@ -16,7 +16,7 @@ public class LikePhoto extends TwoBotsBase {
     private TestBot bot1 = new TestBot("TechoBot15", "TechnoPolis19");
     private TestBot bot2 = new TestBot("TechoBot7", "TechnoPolis19");
 
-//    @Before
+    @Before
     public void login() {
         homeBot1 = new LoginPage(driver1)
                 .doLogin(bot1);
@@ -24,7 +24,7 @@ public class LikePhoto extends TwoBotsBase {
                 .doLogin(bot2);
     }
 
-//    @Test
+    @Test
     public void likeUserAvatar() {
         homeBot2.header()
                 .clickLupa()
@@ -41,7 +41,7 @@ public class LikePhoto extends TwoBotsBase {
         assertEquals(bot2.toString(), sender);
     }
 
-//    @After
+    @After
     public void deleteLike() {
         BasePage.goToHomePage(driver2).header()
                 .clickLupa()

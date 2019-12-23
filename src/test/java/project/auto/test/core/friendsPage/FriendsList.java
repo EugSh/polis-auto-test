@@ -1,5 +1,6 @@
 package project.auto.test.core.friendsPage;
 
+import junit.framework.AssertionFailedError;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -28,6 +29,10 @@ public class FriendsList extends BasePage {
     }
 
     public FriendsCard getByName(final String name) {
-        return items.get(Utils.getFirstIndex(items, name, FriendsCard::getFriendName, Utils.getLiteComparator()));
+        final int index = Utils.getFirstIndex(items, name, FriendsCard::getFriendName, Utils.getLiteComparator());
+        if (index == -1){
+            throw new AssertionFailedError("Друг с именем("+name+") не найден в списке доступных"+items);
+        }
+        return items.get(index);
     }
 }

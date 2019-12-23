@@ -29,7 +29,7 @@ public class ChangeLanguageToEng extends TestBase {
         homePage = BasePage.goToHomePage(driver);
     }
 
-    //@Test
+    @Test
     public void changeLanguage() {
         final String language = homePage.header()
                 .clickDropDownToolBar()

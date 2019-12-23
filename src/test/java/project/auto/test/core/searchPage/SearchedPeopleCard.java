@@ -1,11 +1,14 @@
 package project.auto.test.core.searchPage;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import project.auto.test.Element;
 import project.auto.test.core.Utils;
 import project.auto.test.core.userProfile.UserProfilePage;
+
+import java.util.List;
 
 public class SearchedPeopleCard extends Element {
     private final WebElement element;
@@ -27,7 +30,7 @@ public class SearchedPeopleCard extends Element {
     }
 
     public void clickAddFriend(){
-        click(ADD_FRIEND_LOCATOR);
+        click(element, ADD_FRIEND_LOCATOR);
     }
 
     public UserProfilePage clickProfile(){

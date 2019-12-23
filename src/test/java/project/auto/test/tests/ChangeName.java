@@ -16,13 +16,13 @@ public class ChangeName extends TestBase {
     private static final String defaultName = "TechoBot15";
     private HomePage homePage;
 
-//    @Before
+    @Before
     public void login() {
         homePage = new LoginPage(driver)
                 .doLogin(bot);
     }
 
-//    @Test
+    @Test
     public void changeName() {
         final String name = homePage.header()
                 .clickDropDownToolBar()
@@ -37,7 +37,7 @@ public class ChangeName extends TestBase {
         assertEquals(newName + " " + bot.getLogin(), name);
     }
 
-//    @After
+    @After
     public void setDefaultName() {
         BasePage.goToHomePage(driver)
                 .header()

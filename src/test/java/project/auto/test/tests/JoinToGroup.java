@@ -17,13 +17,13 @@ public class JoinToGroup extends TestBase {
     private static final String groupName = "Hi-Tech";
     private static final String joinStatus = "Вы подписаны!";
 
-//    @Before
+    @Before
     public void login() {
         homePage = new LoginPage(driver)
                 .doLogin(bot);
     }
 
-//    @Test
+    @Test
     public void joinToGroup() {
         final String status = homePage.header()
                 .clickLupa()
@@ -35,7 +35,7 @@ public class JoinToGroup extends TestBase {
         assertEquals(joinStatus, status);
     }
 
-//    @After
+    @After
     public void quitFromGroup() {
         BasePage.goToHomePage(driver)
                 .leftColumnContent()
